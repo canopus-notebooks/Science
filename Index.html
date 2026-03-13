@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Resources and Electricity</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(#caf0f8,#90e0ef);
+text-align:center;
+}
+
+header{
+background:#0077b6;
+color:white;
+padding:30px;
+}
+
+.slide{
+display:none;
+padding:40px 20px;
+}
+
+.active{
+display:block;
+}
+
+.diagram{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+padding:15px;
+width:180px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+width:80px;
+margin-bottom:10px;
+}
+
+button{
+background:#0077b6;
+color:white;
+border:none;
+padding:12px 20px;
+margin:5px;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#023e8a;
+}
+
+.counter{
+margin-top:10px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Energy Resources and Electricity</h1>
+</header>
+
+<div class="slide active">
+
+<h2>Energy Resources</h2>
+
+<div class="diagram">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/615/615075.png">
+<br>Oil<br>Nonrenewable
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/728/728093.png">
+<br>Water<br>Renewable
+</div>
+
+</div>
+</div>
+
+
+
+<div class="slide">
+
+<h2>Formation of Fossil Fuels</h2>
+
+<div class="diagram">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/616/616490.png">
+<br>Marine Life
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+<br>They Die
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png">
+<br>Covered by Rocks
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/481/481674.png">
+<br>Heat & Pressure
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/615/615075.png">
+<br>Oil Forms
+</div>
+
+</div>
+</div>
+
+
+
+<div class="slide">
+
+<h2>Importance of Electricity</h2>
+
+<div class="diagram">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/702/702797.png">
+<br>Lighting Homes
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+<br>Appliances
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/15/15874.png">
+<br>Devices
+</div>
+
+</div>
+</div>
+
+
+
+<div class="slide">
+
+<h2>Saving Electricity</h2>
+
+<div class="diagram">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/702/702814.png">
+<br>Turn Off Lights
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/891/891419.png">
+<br>Unplug Devices
+</div>
+
+</div>
+</div>
+
+
+
+<div class="slide">
+
+<h2>How Electricity is Generated</h2>
+
+<div class="diagram">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/615/615075.png">
+<br>Burn Fuel
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/481/481674.png">
+<br>Heat Water
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png">
+<br>Turbine
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/190/190411.png">
+<br>Generator
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/69/69524.png">
+<br>Electricity to Homes
+</div>
+
+</div>
+</div>
+
+
+
+<div class="slide">
+
+<h2>Thank You</h2>
+
+<p>Now you know how electricity is produced!</p>
+
+</div>
+
+
+
+<div>
+
+<button onclick="prevSlide()">Back</button>
+<button onclick="nextSlide()">Next</button>
+
+<div class="counter" id="counter"></div>
+
+</div>
+
+
+<script>
+
+let current=0
+const slides=document.querySelectorAll(".slide")
+
+function showSlide(index){
+
+slides.forEach((s,i)=>{
+s.classList.toggle("active",i===index)
+})
+
+document.getElementById("counter").innerText=
+"Slide "+(index+1)+" of "+slides.length
+
+}
+
+function nextSlide(){
+current=(current+1)%slides.length
+showSlide(current)
+}
+
+function prevSlide(){
+current=(current-1+slides.length)%slides.length
+showSlide(current)
+}
+
+showSlide(current)
+
+</script>
+
+</body>
+</html>
