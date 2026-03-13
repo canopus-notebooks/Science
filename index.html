@@ -1,398 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Energy Resources and Electricity</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Resources and Electricity</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:linear-gradient(#dff6ff,#bde0fe);
-      color:#222;
-      text-align:center;
-    }
+<style>
 
-    header{
-      background:#0077b6;
-      color:white;
-      padding:25px 15px;
-    }
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(#e0f7ff,#bde0fe);
+text-align:center;
+color:#222;
+}
 
-    header h1{
-      margin:0;
-      font-size:2em;
-    }
+header{
+background:#0077b6;
+color:white;
+padding:25px;
+}
 
-    header p{
-      margin:8px 0 0;
-      font-size:1.1em;
-    }
+.slide{
+display:none;
+padding:40px 20px;
+max-width:1000px;
+margin:auto;
+}
 
-    .slide{
-      display:none;
-      padding:35px 20px;
-      max-width:1100px;
-      margin:auto;
-    }
+.active{
+display:block;
+}
 
-    .active{
-      display:block;
-    }
+.diagram{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:25px;
+}
 
-    h2{
-      color:#023e8a;
-      margin-bottom:15px;
-    }
+.card{
+background:white;
+border-radius:12px;
+padding:15px;
+width:250px;
+box-shadow:0 5px 10px rgba(0,0,0,0.15);
+}
 
-    .intro-text{
-      max-width:900px;
-      margin:0 auto 25px;
-      line-height:1.8;
-      font-size:1.05em;
-    }
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:10px;
+}
 
-    .diagram{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:20px;
-      margin-top:25px;
-    }
+button{
+background:#0077b6;
+color:white;
+border:none;
+padding:12px 18px;
+margin:5px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
 
-    .card{
-      background:white;
-      border-radius:16px;
-      padding:15px;
-      width:280px;
-      box-shadow:0 6px 14px rgba(0,0,0,0.12);
-      text-align:left;
-    }
+button:hover{
+background:#023e8a;
+}
 
-    .card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      border-radius:12px;
-      margin-bottom:12px;
-    }
-
-    .card h3{
-      margin:8px 0;
-      color:#0077b6;
-      font-size:1.1em;
-      text-align:center;
-    }
-
-    .card p{
-      line-height:1.7;
-      font-size:0.98em;
-      margin:0;
-    }
-
-    .steps{
-      max-width:900px;
-      margin:20px auto 0;
-      text-align:left;
-      background:white;
-      padding:20px;
-      border-radius:16px;
-      box-shadow:0 6px 14px rgba(0,0,0,0.1);
-      line-height:1.9;
-    }
-
-    .steps li{
-      margin-bottom:10px;
-    }
-
-    .big-image{
-      width:100%;
-      max-width:700px;
-      height:320px;
-      object-fit:cover;
-      border-radius:16px;
-      margin:20px auto;
-      display:block;
-      box-shadow:0 6px 14px rgba(0,0,0,0.15);
-    }
-
-    .buttons{
-      margin:30px 0 40px;
-    }
-
-    button{
-      background:#0077b6;
-      color:white;
-      border:none;
-      padding:12px 20px;
-      margin:5px;
-      border-radius:10px;
-      cursor:pointer;
-      font-size:1em;
-    }
-
-    button:hover{
-      background:#023e8a;
-    }
-
-    .counter{
-      margin-top:10px;
-      font-weight:bold;
-      color:#023e8a;
-    }
-
-    @media (max-width: 700px){
-      .card{
-        width:100%;
-      }
-
-      .card img{
-        height:200px;
-      }
-
-      .big-image{
-        height:220px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Energy Resources and Electricity</h1>
-    <p>A detailed science lesson for students</p>
-  </header>
+<header>
+<h1>Energy Resources and Electricity</h1>
+<p>Science lesson about energy resources and electricity</p>
+</header>
 
-  <div class="slide active">
-    <h2>Introduction</h2>
-    <p class="intro-text">
-      Humans need energy every day to live, move, study, cook, light homes, and operate machines.
-      Energy comes from natural resources found in our environment. Some of these resources can be
-      replaced naturally, while others take millions of years to form. In this lesson, we will learn
-      about oil, water, fossil fuel formation, the importance of electricity, ways to conserve electricity,
-      and how electricity is generated in power plants.
-    </p>
-    <img class="big-image" src="images/power-plant.jpg" alt="Power plant">
-  </div>
 
-  <div class="slide">
-    <h2>Oil and Water as Energy Resources</h2>
-    <p class="intro-text">
-      Oil and water are both important natural resources, but they are different. Oil is a nonrenewable
-      resource because it forms very slowly over millions of years. Water is a renewable resource because
-      it can be replaced naturally through the water cycle.
-    </p>
+<!-- Slide 1 -->
+<div class="slide active">
 
-    <div class="diagram">
-      <div class="card">
-        <img src="images/oil.jpg" alt="Oil">
-        <h3>Oil</h3>
-        <p>
-          Oil is a nonrenewable energy resource. This means it is used faster than it can be replaced.
-          Oil forms deep underground from the remains of dead marine organisms. Because it takes a very
-          long time to form, people must use it carefully and avoid wasting it.
-        </p>
-      </div>
+<h2>Energy Resources</h2>
 
-      <div class="card">
-        <img src="images/water.jpg" alt="Water">
-        <h3>Water</h3>
-        <p>
-          Water is a renewable resource. It can be replaced naturally after use. Water is also very important
-          for life and can be used to generate electricity in some places. Even though it is renewable,
-          people should still conserve water and avoid polluting it.
-        </p>
-      </div>
-    </div>
-  </div>
+<p>
+Humans use natural resources to produce energy. Some resources can be replaced naturally and are called renewable resources, while others take millions of years to form and are called non-renewable resources.
+</p>
 
-  <div class="slide">
-    <h2>How Fossil Fuels Are Formed</h2>
-    <p class="intro-text">
-      Fossil fuels such as oil and natural gas are formed from the remains of marine living organisms.
-      This process takes millions of years and happens under the ground.
-    </p>
+<div class="diagram">
 
-    <div class="diagram">
-      <div class="card">
-        <img src="images/marine-life.jpg" alt="Marine life">
-        <h3>Step 1: Marine Organisms</h3>
-        <p>
-          Many marine organisms lived in seas and oceans a very long time ago.
-        </p>
-      </div>
+<div class="card">
+<img src="oil.jpg">
+<h3>Oil</h3>
+<p>
+Oil is a nonrenewable resource. It forms deep underground from the remains of marine organisms.
+</p>
+</div>
 
-      <div class="card">
-        <img src="images/rocks.jpg" alt="Rocks and sediments">
-        <h3>Step 2: Burial Under Sediments</h3>
-        <p>
-          After these organisms died, their remains settled on the ocean floor and were covered by layers
-          of sediments and rocks.
-        </p>
-      </div>
+<div class="card">
+<img src="water.jpg">
+<h3>Water</h3>
+<p>
+Water is a renewable resource and can be used to generate electricity in hydroelectric power stations.
+</p>
+</div>
 
-      <div class="card">
-        <img src="images/heat-pressure.jpg" alt="Heat and pressure">
-        <h3>Step 3: Heat and Pressure</h3>
-        <p>
-          Over time, heat and pressure increased under the ground. This changed the remains into fossil fuels
-          such as oil and natural gas.
-        </p>
-      </div>
-    </div>
+</div>
 
-    <ol class="steps">
-      <li>Marine organisms die.</li>
-      <li>Their remains settle on the ocean floor.</li>
-      <li>Layers of sediments and rocks cover the remains.</li>
-      <li>Heat and pressure increase over millions of years.</li>
-      <li>Oil and natural gas are formed.</li>
-    </ol>
-  </div>
+</div>
 
-  <div class="slide">
-    <h2>The Importance of Electricity</h2>
-    <p class="intro-text">
-      Electricity is one of the most important forms of energy in our daily lives. We use it in homes,
-      schools, hospitals, and factories. Without electricity, many activities become difficult.
-    </p>
 
-    <div class="diagram">
-      <div class="card">
-        <img src="images/electricity-home.jpg" alt="Lighting homes">
-        <h3>Lighting Homes</h3>
-        <p>
-          Electricity helps us light homes, classrooms, and streets, especially at night.
-        </p>
-      </div>
 
-      <div class="card">
-        <img src="images/appliances.jpg" alt="Appliances">
-        <h3>Operating Appliances</h3>
-        <p>
-          We use electricity to run refrigerators, fans, televisions, washing machines, and many other appliances.
-        </p>
-      </div>
+<!-- Slide 2 -->
+<div class="slide">
 
-      <div class="card">
-        <img src="images/save-electricity.jpg" alt="Devices">
-        <h3>Using Devices</h3>
-        <p>
-          Computers, tablets, chargers, and many school devices depend on electricity to work properly.
-        </p>
-      </div>
-    </div>
-  </div>
+<h2>Formation of Fossil Fuels</h2>
 
-  <div class="slide">
-    <h2>How to Conserve Electricity</h2>
-    <p class="intro-text">
-      Because electricity is very important, we should not waste it. Conserving electricity helps protect
-      natural resources and reduces unnecessary energy use.
-    </p>
+<p>
+Fossil fuels such as oil and natural gas are formed from the remains of marine organisms over millions of years.
+</p>
 
-    <ol class="steps">
-      <li>Turn off lights when they are not needed.</li>
-      <li>Unplug electrical appliances when they are not in use.</li>
-      <li>Use electricity carefully and avoid waste.</li>
-      <li>Use natural light during the day when possible.</li>
-      <li>Teach others the importance of saving electricity.</li>
-    </ol>
-  </div>
+<div class="diagram">
 
-  <div class="slide">
-    <h2>How Electricity Is Generated</h2>
-    <p class="intro-text">
-      In power plants, fossil fuels such as oil, coal, or natural gas are used to generate electricity.
-      This process happens in several connected steps.
-    </p>
+<div class="card">
+<img src="marine-life.jpg">
+<h3>Marine Life</h3>
+<p>
+Marine organisms lived in ancient seas.
+</p>
+</div>
 
-    <div class="diagram">
-      <div class="card">
-        <img src="images/power-plant.jpg" alt="Burning fuel">
-        <h3>Step 1: Fuel Is Burned</h3>
-        <p>
-          Fossil fuel is burned in the power plant. This produces thermal energy, which means heat energy.
-        </p>
-      </div>
+<div class="card">
+<img src="rocks.jpg">
+<h3>Buried Under Rocks</h3>
+<p>
+After they died their remains were covered by sediments.
+</p>
+</div>
 
-      <div class="card">
-        <img src="images/water.jpg" alt="Heating water">
-        <h3>Step 2: Water Becomes Steam</h3>
-        <p>
-          The heat energy is used to heat water. When the water gets very hot, it changes into steam.
-        </p>
-      </div>
+<div class="card">
+<img src="heat-pressure.jpg">
+<h3>Heat and Pressure</h3>
+<p>
+Over millions of years heat and pressure transformed them into fossil fuels.
+</p>
+</div>
 
-      <div class="card">
-        <img src="images/turbine.jpg" alt="Turbine">
-        <h3>Step 3: Steam Turns a Turbine</h3>
-        <p>
-          The steam moves through pipes and pushes a turbine. The turbine begins to spin and produces kinetic energy.
-        </p>
-      </div>
+</div>
 
-      <div class="card">
-        <img src="images/generator.jpg" alt="Generator">
-        <h3>Step 4: Turbine Turns a Generator</h3>
-        <p>
-          The spinning turbine turns a generator. The generator converts kinetic energy into electrical energy.
-        </p>
-      </div>
+</div>
 
-      <div class="card">
-        <img src="images/electricity-home.jpg" alt="Electricity to homes">
-        <h3>Step 5: Electricity Travels to Homes</h3>
-        <p>
-          The electricity travels through wires and power lines to homes, schools, and buildings.
-        </p>
-      </div>
-    </div>
-  </div>
 
-  <div class="slide">
-    <h2>Conclusion</h2>
-    <p class="intro-text">
-      In this lesson, we learned that energy comes from natural resources. Oil is a nonrenewable resource,
-      while water is a renewable one. We also learned that fossil fuels are formed from marine organisms over
-      millions of years. Electricity is very important in daily life, so we should conserve it. Finally, we
-      studied how electricity is generated in power plants using fossil fuels, heat, steam, turbines, and generators.
-    </p>
-    <img class="big-image" src="images/electricity-home.jpg" alt="Electricity in daily life">
-  </div>
 
-  <div class="buttons">
-    <button onclick="prevSlide()">Back</button>
-    <button onclick="nextSlide()">Next</button>
-    <div class="counter" id="counter"></div>
-  </div>
+<!-- Slide 3 -->
+<div class="slide">
 
-  <script>
-    let current = 0;
-    const slides = document.querySelectorAll(".slide");
+<h2>Importance of Electricity</h2>
 
-    function showSlide(index){
-      slides.forEach((s,i)=>{
-        s.classList.toggle("active", i === index);
-      });
+<div class="diagram">
 
-      document.getElementById("counter").innerText =
-        "Slide " + (index + 1) + " of " + slides.length;
-    }
+<div class="card">
+<img src="electricity-home.jpg">
+<h3>Lighting Homes</h3>
+<p>
+Electricity provides lighting for homes, schools and streets.
+</p>
+</div>
 
-    function nextSlide(){
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
+<div class="card">
+<img src="appliances.jpg">
+<h3>Appliances</h3>
+<p>
+Many appliances such as refrigerators, fans and washing machines use electricity.
+</p>
+</div>
 
-    function prevSlide(){
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    }
+<div class="card">
+<img src="save-electricity.jpg">
+<h3>Devices</h3>
+<p>
+Computers, tablets and phones depend on electricity.
+</p>
+</div>
 
-    showSlide(current);
-  </script>
+</div>
+
+</div>
+
+
+
+<!-- Slide 4 -->
+<div class="slide">
+
+<h2>How Electricity Is Generated</h2>
+
+<p>
+In power plants fossil fuels such as oil, coal or natural gas are burned to produce electricity.
+</p>
+
+<div class="diagram">
+
+<div class="card">
+<img src="power-plant.jpg">
+<h3>Step 1</h3>
+<p>Fuel is burned in a power plant.</p>
+</div>
+
+<div class="card">
+<img src="water.jpg">
+<h3>Step 2</h3>
+<p>Water is heated until it becomes steam.</p>
+</div>
+
+<div class="card">
+<img src="turbine.jpg">
+<h3>Step 3</h3>
+<p>Steam turns a turbine.</p>
+</div>
+
+<div class="card">
+<img src="generator.jpg">
+<h3>Step 4</h3>
+<p>The turbine spins a generator to produce electricity.</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- Slide 5 -->
+<div class="slide">
+
+<h2>Conserving Electricity</h2>
+
+<p>
+Electricity is very important in our daily lives. Therefore we must conserve it and avoid wasting energy.
+</p>
+
+<ul style="max-width:600px;margin:auto;text-align:left;font-size:18px;line-height:1.8">
+
+<li>Turn off lights when not needed.</li>
+<li>Unplug devices when they are not used.</li>
+<li>Use electricity wisely.</li>
+<li>Use natural light during the day.</li>
+
+</ul>
+
+</div>
+
+
+
+<div style="margin:30px">
+
+<button onclick="prevSlide()">Back</button>
+<button onclick="nextSlide()">Next</button>
+
+</div>
+
+
+
+<script>
+
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index){
+slides.forEach((s,i)=>{
+s.classList.toggle("active",i===index);
+});
+}
+
+function nextSlide(){
+current = (current+1) % slides.length;
+showSlide(current);
+}
+
+function prevSlide(){
+current = (current-1+slides.length)%slides.length;
+showSlide(current);
+}
+
+</script>
+
 
 </body>
 </html>
