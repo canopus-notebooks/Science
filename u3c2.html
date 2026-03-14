@@ -35,7 +35,9 @@
       margin: 4px;
     }
 
-    .btn:hover { background: #023e8a; }
+    .btn:hover {
+      background: #023e8a;
+    }
 
     .container {
       max-width: 1100px;
@@ -47,23 +49,28 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 22px;
+      gap: 24px;
       margin-top: 30px;
     }
 
     .card {
       background: white;
-      width: 300px;
+      width: 320px;
       border-radius: 18px;
-      padding: 22px 18px;
-      text-decoration: none;
+      padding: 24px 20px;
       color: #1f2937;
       box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      text-decoration: none;
+      transition: transform 0.2s ease;
     }
 
-    .card h3 {
-      color: #0b3d91;
-      margin-top: 0;
+    a.card:hover {
+      transform: translateY(-4px);
+    }
+
+    .coming {
+      opacity: 0.78;
+      cursor: not-allowed;
     }
 
     .badge {
@@ -76,13 +83,23 @@
       font-weight: bold;
       font-size: 0.9rem;
     }
+
+    .card h3 {
+      color: #0b3d91;
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.7;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Unit 3 - Concept 2</h1>
-    <p>Choose a Lesson</p>
+    <p>Available Sessions</p>
     <div class="top-bar">
       <a class="btn" href="unit3.html">Back to Unit 3</a>
       <a class="btn" href="index.html">Home</a>
@@ -91,29 +108,25 @@
 
   <div class="container">
     <div class="grid">
-      <a class="card" href="#">
-        <div class="badge">Lesson 1</div>
-        <h3>Coming Soon</h3>
-        <p>Add Lesson 1 here later.</p>
-      </a>
 
-      <a class="card" href="u3c2l23.html">
-        <div class="badge">Lesson 2 & 3</div>
+      <div class="card coming">
+        <div class="badge">Session 3</div>
+        <h3 style="font-size: 30px; color: #ef4444; text-align: center; margin-top: 18px;">COMING SOON</h3>
+        <p>Lesson 1 + Part of Lesson 2</p>
+      </div>
+
+      <a class="card" href="session4.html">
+        <div class="badge">Session 4</div>
         <h3>Energy Resources and Electricity</h3>
-        <p>Open the current lesson.</p>
+        <p>Rest of Lesson 2 + Lesson 3</p>
       </a>
 
-      <a class="card" href="#">
-        <div class="badge">Lesson 4</div>
-        <h3>Coming Soon</h3>
-        <p>Add Lesson 4 here later.</p>
-      </a>
+      <div class="card coming">
+        <div class="badge">Session 5</div>
+        <h3 style="font-size: 30px; color: #ef4444; text-align: center; margin-top: 18px;">COMING SOON</h3>
+        <p>Lesson 4 + Lesson 5</p>
+      </div>
 
-      <a class="card" href="#">
-        <div class="badge">Lesson 5</div>
-        <h3>Coming Soon</h3>
-        <p>Add Lesson 5 here later.</p>
-      </a>
     </div>
   </div>
 
