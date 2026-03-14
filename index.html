@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junior 4 Science</title>
+  <title>Junior 4 Science | Omar Fathy</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -15,77 +17,84 @@
       text-align: center;
     }
 
-    header {
-      background: linear-gradient(90deg, #0077b6, #0096c7);
+    .hero {
+      position: relative;
+      min-height: 350px;
+      background: linear-gradient(rgba(0, 40, 70, 0.45), rgba(0, 40, 70, 0.45)),
+        url("cover.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(3px);
+      padding: 26px 22px;
+      border-radius: 18px;
       color: white;
-      padding: 35px 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-width: 760px;
     }
 
-    header h1 {
+    .hero h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
     }
 
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.05rem;
+    .hero h2 {
+      margin: 14px 0 0;
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
+
+    .hero p {
+      margin: 12px 0 0;
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     .container {
       max-width: 1150px;
       margin: auto;
-      padding: 35px 20px 50px;
+      padding: 36px 20px 50px;
     }
 
     .section-title {
       color: #0b3d91;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       margin-bottom: 12px;
     }
 
     .section-text {
-      max-width: 820px;
+      max-width: 850px;
       margin: 0 auto 28px;
       line-height: 1.8;
-      font-size: 1.02rem;
+      font-size: 1.03rem;
     }
 
     .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 22px;
+      gap: 24px;
       margin-top: 30px;
     }
 
     .card {
       background: white;
-      width: 300px;
+      width: 320px;
       border-radius: 18px;
-      padding: 22px 18px;
+      padding: 24px 20px;
       text-decoration: none;
       color: #1f2937;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.16);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #0b3d91;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      margin: 0;
-      line-height: 1.7;
-      font-size: 0.98rem;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
     }
 
     .badge {
@@ -99,39 +108,85 @@
       font-size: 0.9rem;
     }
 
+    .card h3 {
+      margin: 0 0 10px;
+      color: #0b3d91;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .footer-note {
+      margin-top: 35px;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
     @media (max-width: 700px) {
-      header h1 { font-size: 1.7rem; }
-      .section-title { font-size: 1.45rem; }
-      .card { width: 100%; max-width: 340px; }
+      .hero {
+        min-height: 280px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero h2 {
+        font-size: 1.15rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 340px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Junior 4 Science</h1>
-    <p>Choose a Unit</p>
-  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Junior 4 Science</h1>
+      <h2>Prepared by Omar Fathy</h2>
+      <p>
+        Welcome to the science sessions website. Choose a unit to open its concepts and study the available sessions.
+      </p>
+    </div>
+  </section>
 
   <div class="container">
-    <h2 class="section-title">Science Units</h2>
+    <h2 class="section-title">Choose a Unit</h2>
     <p class="section-text">
-      Welcome to Junior 4 Science lessons. Choose a unit to open its concepts and lessons.
+      This website is organized as sessions to match the video explanation plan. Open any unit to see its concepts and available sessions.
     </p>
 
     <div class="grid">
       <a class="card" href="unit3.html">
-        <div class="badge">3 Concepts</div>
-        <h3>Unit 3</h3>
-        <p>Open Unit 3 and study its concepts and lessons.</p>
+        <div class="badge">Unit 3</div>
+        <h3>Unit 3 Sessions</h3>
+        <p>
+          Open Unit 3 and study Concept 1, Concept 2, and Concept 3.
+        </p>
       </a>
 
       <a class="card" href="unit4.html">
-        <div class="badge">2 Concepts</div>
-        <h3>Unit 4</h3>
-        <p>Open Unit 4 and study its concepts and lessons.</p>
+        <div class="badge">Unit 4</div>
+        <h3>Unit 4 Sessions</h3>
+        <p>
+          Open Unit 4 and study Concept 1 and Concept 2.
+        </p>
       </a>
     </div>
+
+    <div class="footer-note">More sessions will be added soon.</div>
   </div>
 
 </body>
