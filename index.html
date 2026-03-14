@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Junior 4 Science</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -21,7 +19,7 @@
       background: linear-gradient(90deg, #0077b6, #0096c7);
       color: white;
       padding: 35px 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     header h1 {
@@ -53,7 +51,7 @@
       font-size: 1.02rem;
     }
 
-    .lessons-grid {
+    .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -61,30 +59,30 @@
       margin-top: 30px;
     }
 
-    .lesson-card {
+    .card {
       background: white;
       width: 300px;
       border-radius: 18px;
       padding: 22px 18px;
       text-decoration: none;
       color: #1f2937;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .lesson-card:hover {
+    .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.16);
     }
 
-    .lesson-card h3 {
+    .card h3 {
       margin-top: 0;
       margin-bottom: 10px;
       color: #0b3d91;
       font-size: 1.2rem;
     }
 
-    .lesson-card p {
+    .card p {
       margin: 0;
       line-height: 1.7;
       font-size: 0.98rem;
@@ -101,69 +99,39 @@
       font-size: 0.9rem;
     }
 
-    .footer-note {
-      margin-top: 35px;
-      color: #4b5563;
-      font-size: 0.95rem;
-    }
-
     @media (max-width: 700px) {
-      header h1 {
-        font-size: 1.7rem;
-      }
-
-      .section-title {
-        font-size: 1.45rem;
-      }
-
-      .lesson-card {
-        width: 100%;
-        max-width: 340px;
-      }
+      header h1 { font-size: 1.7rem; }
+      .section-title { font-size: 1.45rem; }
+      .card { width: 100%; max-width: 340px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Junior 4 Science Lessons</h1>
-    <p>Interactive science lessons for students</p>
+    <h1>Junior 4 Science</h1>
+    <p>Choose a Unit</p>
   </header>
 
   <div class="container">
-    <h2 class="section-title">Choose a Lesson</h2>
+    <h2 class="section-title">Science Units</h2>
     <p class="section-text">
-      Welcome to Junior 4 Science. Choose the lesson you want to study.
-      Each lesson is presented in a simple and organized way to help students understand easily.
+      Welcome to Junior 4 Science lessons. Choose a unit to open its concepts and lessons.
     </p>
 
-    <div class="lessons-grid">
-      <a class="lesson-card" href="lesson23.html">
-        <div class="badge">Unit 3</div>
-        <h3>Concept 2 - Lesson 2 & 3</h3>
-        <p>
-          Energy Resources and Electricity
-        </p>
+    <div class="grid">
+      <a class="card" href="unit3.html">
+        <div class="badge">3 Concepts</div>
+        <h3>Unit 3</h3>
+        <p>Open Unit 3 and study its concepts and lessons.</p>
       </a>
 
-      <a class="lesson-card" href="#">
-        <div class="badge">Coming Soon</div>
-        <h3>Next Lesson</h3>
-        <p>
-          You can add your next lesson here later.
-        </p>
-      </a>
-
-      <a class="lesson-card" href="#">
-        <div class="badge">Coming Soon</div>
-        <h3>Another Lesson</h3>
-        <p>
-          Add more lessons here as your website grows.
-        </p>
+      <a class="card" href="unit4.html">
+        <div class="badge">2 Concepts</div>
+        <h3>Unit 4</h3>
+        <p>Open Unit 4 and study its concepts and lessons.</p>
       </a>
     </div>
-
-    <div class="footer-note">More lessons will be added soon.</div>
   </div>
 
 </body>
