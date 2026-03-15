@@ -119,8 +119,8 @@
     }
 
     .main-image {
-      width: 60%;
-      max-width: 520px;
+      width: 75%;
+      max-width: 760px;
       border-radius: 16px;
       margin-top: 24px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -204,20 +204,20 @@
       }
 
       .slide h2 {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
       }
 
       .lead {
         font-size: 1rem;
       }
 
+      .main-image {
+        width: 95%;
+      }
+
       .card {
         width: 100%;
         max-width: 330px;
-      }
-
-      .main-image {
-        width: 90%;
       }
     }
   </style>
@@ -241,210 +241,165 @@
     <div class="progress-bar" id="progressBar"></div>
   </div>
 
+  <!-- Slide 1 -->
   <div class="slide active">
-    <h2>Welcome to the Session</h2>
+    <h2>Introduction</h2>
+
     <p class="lead">
-      In this session, we will learn about pollution in big cities, the harms of burning fossil fuels,
-      acid rain, global warming, how to reduce pollution, and why we must conserve fossil fuels.
+      In this session, we will learn about pollution in big cities, burning fossil fuels, conserving fossil fuels,
+      using fuels, and how scientists record evidence and explain ideas clearly.
     </p>
-    <img src="big-city-pollution.jpg" alt="Pollution in big cities" class="main-image">
-    <br><br>
+
+    <img src="u3c2intro.jpg" alt="Introduction" class="main-image">
+
+    <ul class="info-list">
+      <li>We will study environmental problems in big cities.</li>
+      <li>We will learn the harmful effects of burning fossil fuels.</li>
+      <li>We will learn how to conserve fossil fuels.</li>
+      <li>We will compare renewable and nonrenewable fuels.</li>
+      <li>We will think like scientists and use evidence.</li>
+    </ul>
+
     <button onclick="nextSlide()">Start Session</button>
   </div>
 
+  <!-- Slide 2 -->
   <div class="slide">
-    <h2>Environmental Problems in Big Cities</h2>
+    <h2>Activity 9: Big City Environmental Problems</h2>
+
     <p class="lead">
-      Big cities suffer from many environmental problems because of factories, cars,
-      agricultural activities, and the heavy use of fossil fuels.
+      Big cities suffer from many environmental problems because of factories, vehicles, chemicals,
+      pesticides, and the heavy use of fuels.
     </p>
 
-    <div class="grid">
-      <div class="card">
-        <img src="big-city-pollution.jpg" alt="Big city pollution">
-        <h3>Smog</h3>
-        <p>Smog produced from burning fuels pollutes the air in many big cities.</p>
-      </div>
-
-      <div class="card">
-        <img src="big-city-pollution.jpg" alt="Pesticides and pollution">
-        <h3>Pesticides</h3>
-        <p>Pesticides used in farms may reach canals and rivers and pollute water and soil.</p>
-      </div>
-
-      <div class="card">
-        <img src="big-city-pollution.jpg" alt="Factory chemicals">
-        <h3>Chemicals</h3>
-        <p>Chemicals used in factories may pollute the air, water, and soil.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide">
-    <h2>Effects of Air Pollution on Human Health</h2>
-    <p class="lead">
-      Air pollution affects people’s health and may cause serious damage to the body,
-      especially the eyes, lungs, and respiratory system.
-    </p>
-
-    <img src="air-pollution-health.jpg" alt="Effects of air pollution on health" class="main-image">
+    <img src="u3c2a9.jpg" alt="Activity 9" class="main-image">
 
     <ul class="info-list">
-      <li>Smog causes irritation of human eyes.</li>
-      <li>Smog causes irritation of the lungs.</li>
-      <li>Small particles in polluted air may damage the respiratory system.</li>
-      <li>Breathing polluted air is harmful to human health.</li>
+      <li>Smog produced by burning fuels pollutes the air.</li>
+      <li>Pesticides used in farms may pollute soil and water.</li>
+      <li>Chemicals used in factories may pollute air, soil, and water.</li>
+      <li>Air pollution may irritate the eyes and lungs and damage the respiratory system.</li>
     </ul>
   </div>
 
+  <!-- Slide 3 -->
   <div class="slide">
-    <h2>Burning Fossil Fuels and Pollution</h2>
+    <h2>Activity 10: Burning Fossil Fuels and Pollution</h2>
+
     <p class="lead">
-      Fossil fuels such as coal, oil, and natural gas are burned to generate electricity
-      and provide energy for homes, schools, factories, cars, and trains.
+      Fossil fuels such as coal, oil, and natural gas are burned to generate electricity and provide energy,
+      but burning them causes serious pollution problems.
     </p>
 
     <div class="grid">
       <div class="card">
-        <img src="fossil-fuel-burning.jpg" alt="Burning fossil fuels">
+        <img src="u3c2a10.jpg" alt="Burning fossil fuels">
         <h3>Burning Fuel</h3>
         <p>Burning fossil fuels provides energy, but it also pollutes the environment.</p>
       </div>
 
       <div class="card">
-        <img src="fossil-fuel-burning.jpg" alt="Generating electricity">
-        <h3>Generating Electricity</h3>
-        <p>Fossil fuels are used in power stations to generate electricity.</p>
-      </div>
-
-      <div class="card">
-        <img src="fossil-fuel-burning.jpg" alt="Pollution from burning fuels">
-        <h3>Environmental Harm</h3>
-        <p>Burning fossil fuels increases pollution and releases harmful gases.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide">
-    <h2>Acid Rain and Global Warming</h2>
-    <p class="lead">
-      Burning fossil fuels releases carbon dioxide and other harmful gases.
-      These gases may lead to acid rain and global warming.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <img src="acid-rain.jpg" alt="Acid rain">
+        <img src="u3c2a102.jpg" alt="Acid rain">
         <h3>Acid Rain</h3>
         <p>Acid rain harms trees, fish, lakes, soil, and even some rocks used for building.</p>
       </div>
 
       <div class="card">
-        <img src="global-warming.jpg" alt="Global warming">
+        <img src="u3c2a103.jpg" alt="Global warming">
         <h3>Global Warming</h3>
         <p>Carbon dioxide forms a layer in the atmosphere that traps heat and raises Earth’s temperature.</p>
       </div>
     </div>
-
-    <ul class="info-list">
-      <li>Acid rain may kill fish and damage trees.</li>
-      <li>Acid rain changes the chemical nature of lakes and soil.</li>
-      <li>Global warming increases Earth’s temperature.</li>
-      <li>Global warming causes climate change.</li>
-    </ul>
   </div>
 
+  <!-- Slide 4 -->
   <div class="slide">
-    <h2>How to Reduce Acid Rain and Global Warming</h2>
+    <h2>Activity 11: Conserving Fossil Fuels</h2>
+
     <p class="lead">
-      The best solution is to conserve energy. When people reduce energy use,
-      the amount of burning fossil fuel decreases, so pollution also decreases.
-    </p>
-
-    <img src="conserve-energy.jpg" alt="Conserving energy" class="main-image">
-
-    <ul class="info-list">
-      <li>Reduce the use of energy whenever possible.</li>
-      <li>Less energy use means less fossil fuel burning.</li>
-      <li>Less burning means less carbon dioxide in the air.</li>
-      <li>Conserving energy keeps the Earth cleaner.</li>
-    </ul>
-  </div>
-
-  <div class="slide">
-    <h2>Conserving Fossil Fuels</h2>
-    <p class="lead">
-      Fossil fuels should be conserved because they are formed over millions of years,
-      they are limited, and they cannot be replaced quickly.
+      Fossil fuels should be conserved because they are formed over millions of years
+      and cannot be replaced quickly.
     </p>
 
     <div class="grid">
       <div class="card">
-        <img src="bicycle-transport.jpg" alt="Using bicycles">
+        <img src="u3c2a11.jpg" alt="Using bicycles">
         <h3>Use Bicycles</h3>
         <p>Walking or using bicycles instead of cars helps conserve fossil fuels.</p>
       </div>
 
       <div class="card">
-        <img src="conserve-energy.jpg" alt="Turn off lights">
-        <h3>Turn Off Lights</h3>
-        <p>Turning off lights when not needed helps save energy and reduce fuel use.</p>
+        <img src="u3c2a112.jpg" alt="Conserve energy">
+        <h3>Conserve Energy</h3>
+        <p>Turning off lights and reducing energy use helps save fossil fuels.</p>
       </div>
 
       <div class="card">
-        <img src="renewable-energy.jpg" alt="Renewable energy">
+        <img src="u3c2a113.jpg" alt="Renewable energy">
         <h3>Use Renewable Energy</h3>
         <p>Water, wind, and solar energy can replace fossil fuels in many uses.</p>
       </div>
     </div>
   </div>
 
+  <!-- Slide 5 -->
   <div class="slide">
-    <h2>Renewable and Nonrenewable Resources</h2>
+    <h2>Activity 12: Using Fuels</h2>
+
     <p class="lead">
-      Energy resources can be classified into renewable and nonrenewable resources.
+      Fuels can be classified into renewable resources and nonrenewable resources.
     </p>
 
     <div class="grid">
       <div class="card">
-        <img src="renewable-energy.jpg" alt="Renewable resources">
+        <img src="u3c2a12.jpg" alt="Renewable resources">
         <h3>Renewable Resources</h3>
         <p>Solar energy, water, wind energy, wood, and charcoal made from wood.</p>
       </div>
 
       <div class="card">
-        <img src="fossil-fuel-burning.jpg" alt="Nonrenewable resources">
+        <img src="u3c2a122.jpg" alt="Nonrenewable resources">
         <h3>Nonrenewable Resources</h3>
         <p>Coal, gasoline, oil, and natural gas.</p>
       </div>
     </div>
   </div>
 
+  <!-- Slide 6 -->
   <div class="slide">
-    <h2>Think Like a Scientist</h2>
+    <h2>Activity 13: Record Evidence Like a Scientist</h2>
+
     <p class="lead">
-      Scientists ask questions, make claims, give evidence, and explain their ideas clearly.
+      Scientists ask questions, make claims, record evidence, and explain ideas clearly.
     </p>
 
-    <img src="scientist-thinking.jpg" alt="Think like a scientist" class="main-image">
+    <img src="u3c2a13.jpg" alt="Activity 13" class="main-image">
 
     <ul class="info-list">
       <li><b>Question:</b> Where does the fuel we use every day come from?</li>
       <li><b>Claim:</b> Some fuels come from fossil fuels and some come from renewable resources.</li>
       <li><b>Evidence:</b> Coal, oil, and natural gas are nonrenewable, while water and wind are renewable.</li>
-      <li><b>Scientific Explanation:</b> Fossil fuels are formed over millions of years, but renewable resources can be replaced naturally.</li>
+      <li><b>Explanation:</b> Fossil fuels are formed over millions of years, but renewable resources can be replaced naturally.</li>
     </ul>
   </div>
 
+  <!-- Slide 7 -->
   <div class="slide">
     <h2>Conclusion</h2>
+
     <p class="lead">
-      In this session, we learned that burning fossil fuels causes pollution,
-      acid rain, and global warming. We also learned that conserving energy and
-      using renewable resources help protect the Earth and conserve fossil fuels.
+      In this session, we learned that pollution in big cities has many causes, especially burning fossil fuels.
+      We also learned that conserving energy and using renewable resources help protect the environment.
     </p>
 
-    <img src="global-warming.jpg" alt="Conclusion" class="main-image">
+    <img src="u3c2summary.jpg" alt="Conclusion" class="main-image">
+
+    <ul class="info-list">
+      <li>Burning fossil fuels causes pollution.</li>
+      <li>Big cities suffer from environmental problems.</li>
+      <li>Conserving fossil fuels is very important.</li>
+      <li>Renewable resources are safer for the future.</li>
+    </ul>
   </div>
 
   <div class="nav">
@@ -465,7 +420,6 @@
       });
 
       counter.textContent = "Slide " + (i + 1) + " of " + slides.length;
-
       const progress = ((i + 1) / slides.length) * 100;
       progressBar.style.width = progress + "%";
 
