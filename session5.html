@@ -1,298 +1,805 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session 5 - Pollution, Fossil Fuels, and Energy Conservation</title>
 
-<title>Session 5 - Fossil Fuels</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
+    :root {
+      --primary: #0077b6;
+      --primary-dark: #023e8a;
+      --accent: #00b4d8;
+      --bg1: #caf0f8;
+      --bg2: #e0f7ff;
+      --text: #1f2937;
+      --white: #ffffff;
+      --shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      --radius: 16px;
+    }
 
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#e8f3ff;
-overflow:hidden;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      text-align: center;
+      min-height: 100%;
+    }
 
-/* top bar */
+    body {
+      overflow-x: hidden;
+    }
 
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 20px;
-background:white;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
+    header {
+      background: linear-gradient(90deg, var(--primary), #0096c7);
+      color: white;
+      padding: 28px 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 5;
+    }
 
-button{
-padding:8px 14px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:14px;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1.3;
+    }
 
-.home{
-background:#ddd;
-}
+    header p {
+      margin: 8px 0 0;
+      font-size: 1rem;
+    }
 
-.start{
-background:#28a745;
-color:white;
-font-weight:bold;
-}
+    .top-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 12px 0;
+      padding: 0 12px;
+    }
 
-.fullscreen{
-background:#444;
-color:white;
-}
+    .top-btn,
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 119, 182, 0.18);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.18s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
 
-/* slide container */
+    .top-btn:hover,
+    button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 7px 16px rgba(2, 62, 138, 0.24);
+    }
 
-.slide-container{
-position:relative;
-width:100vw;
-height:90vh;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+    .top-btn.start-btn {
+      background: #16a34a;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);
+    }
 
-/* slides */
+    .top-btn.start-btn:hover {
+      background: #15803d;
+    }
 
-.slide{
-display:none;
-text-align:center;
-animation:fade 0.6s;
-}
+    .top-btn.small-btn {
+      padding: 10px 14px;
+    }
 
-.slide img{
-max-width:70%;
-border-radius:10px;
-cursor:pointer;
-}
+    .progress-area {
+      width: 82%;
+      max-width: 950px;
+      margin: 14px auto 6px;
+    }
 
-.slide h2{
-font-size:28px;
-margin-bottom:10px;
-}
+    .progress-wrap {
+      width: 100%;
+      height: 12px;
+      background: #dbeafe;
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
 
-.slide p{
-font-size:20px;
-}
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
 
-.active{
-display:block;
-}
+    .progress-text {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      font-weight: bold;
+      color: #0b3d91;
+    }
 
-/* navigation */
+    .slides-wrap {
+      position: relative;
+      width: 100%;
+    }
 
-.nav{
-position:absolute;
-bottom:20px;
-width:100%;
-display:flex;
-justify-content:space-between;
-padding:0 40px;
-}
+    .slide {
+      display: none;
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 18px 20px;
+      animation: fadeSlide 0.45s ease;
+    }
 
-.nav button{
-background:#007bff;
-color:white;
-}
+    .slide.active {
+      display: block;
+    }
 
-/* progress */
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.995);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
 
-.progress{
-position:absolute;
-top:0;
-left:0;
-height:5px;
-background:#007bff;
-width:0%;
-transition:width 0.3s;
-}
+    .slide-inner {
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(2px);
+      border-radius: 22px;
+      padding: 26px 18px 28px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    }
 
-/* animation */
+    .slide h2 {
+      color: #0b3d91;
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 2rem;
+    }
 
-@keyframes fade{
-from{opacity:0}
-to{opacity:1}
-}
+    .lead {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
 
-/* lightbox */
+    .main-image {
+      width: 75%;
+      max-width: 760px;
+      border-radius: 16px;
+      margin-top: 24px;
+      box-shadow: var(--shadow);
+      object-fit: cover;
+      cursor: zoom-in;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-.lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:none;
-align-items:center;
-justify-content:center;
-}
+    .main-image:hover {
+      transform: scale(1.01);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+    }
 
-.lightbox img{
-max-width:90%;
-}
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 22px;
+    }
 
-</style>
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      width: 260px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      animation: cardRise 0.45s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 24px rgba(0, 0, 0, 0.13);
+    }
+
+    @keyframes cardRise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      background: #f3f4f6;
+      cursor: zoom-in;
+      transition: transform 0.25s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.02);
+    }
+
+    .card h3 {
+      text-align: center;
+      color: #0b3d91;
+      margin: 12px 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.7;
+      font-size: 0.97rem;
+    }
+
+    .info-list {
+      max-width: 850px;
+      margin: 24px auto 0;
+      background: white;
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      text-align: left;
+      animation: fadeList 0.45s ease;
+    }
+
+    @keyframes fadeList {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .info-list li {
+      margin-bottom: 12px;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .nav {
+      margin: 6px 0 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 0 14px 30px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .counter {
+      margin-top: 2px;
+      font-weight: bold;
+      color: #0b3d91;
+      font-size: 1rem;
+    }
+
+    .hint {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .lightbox.show {
+      display: flex;
+      animation: lightboxFade 0.25s ease;
+    }
+
+    @keyframes lightboxFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 92vh;
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 92vh;
+      border-radius: 16px;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+      background: white;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      color: #111827;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .slide-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #bfdbfe;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.18);
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 22px 14px;
+      }
+
+      header h1 {
+        font-size: 1.55rem;
+      }
+
+      .slide {
+        padding: 22px 12px 14px;
+      }
+
+      .slide-inner {
+        padding: 20px 12px 22px;
+        border-radius: 18px;
+      }
+
+      .slide h2 {
+        font-size: 1.45rem;
+      }
+
+      .lead {
+        font-size: 1.08rem;
+        line-height: 1.85;
+      }
+
+      .main-image {
+        width: 95%;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 330px;
+      }
+
+      .info-list {
+        padding: 18px 18px;
+      }
+
+      .info-list li,
+      .card p,
+      .hint,
+      .progress-text,
+      .counter,
+      header p {
+        font-size: 1rem;
+      }
+
+      .top-btn,
+      button {
+        font-size: 15px;
+        padding: 12px 15px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="progress" id="progress"></div>
+  <header>
+    <h1>Pollution, Fossil Fuels, and Energy Conservation</h1>
+    <p>Junior 4 Science</p>
+    <p>Unit 3 - Concept 2 - Session 5</p>
+  </header>
 
-<div class="topbar">
+  <div class="top-bar">
+    <a class="top-btn" href="u3c2.html">All Sessions</a>
+    <a class="top-btn" href="index.html">Home</a>
+    <button class="top-btn start-btn" onclick="goHome()">Start</button>
+    <button class="top-btn small-btn" onclick="toggleFull()">⛶ Full Screen</button>
+  </div>
 
-<button class="home" onclick="location.href='index.html'">Home</button>
+  <div class="progress-area">
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text" id="progressText">Session 5 • Slide 1 of 7</div>
+  </div>
 
-<div>
-Session 5 — Fossil Fuels
-</div>
+  <div class="slides-wrap">
 
-<div>
-<button class="start" onclick="nextSlide()">Start</button>
-<button class="fullscreen" onclick="openFullscreen()">⛶</button>
-</div>
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-inner">
+        <h2>Introduction</h2>
 
-</div>
+        <p class="lead">
+          In this session, we will learn about pollution in big cities, burning fossil fuels, conserving fossil fuels,
+          using fuels, and how scientists record evidence and explain ideas clearly.
+        </p>
 
-<div class="slide-container">
+        <img src="u3c2intro.jpg" alt="Introduction" class="main-image zoomable">
 
-<!-- Slide 1 -->
-<div class="slide active">
-<h2>Introduction</h2>
-<img src="u3c2intro.jpg" onclick="zoom(this)">
-<p>Energy powers our world.</p>
-</div>
+        <ul class="info-list">
+          <li>We will study environmental problems in big cities.</li>
+          <li>We will learn the harmful effects of burning fossil fuels.</li>
+          <li>We will learn how to conserve fossil fuels.</li>
+          <li>We will compare renewable and nonrenewable fuels.</li>
+          <li>We will think like scientists and use evidence.</li>
+        </ul>
 
-<!-- Slide 2 -->
-<div class="slide">
-<h2>Activity 9</h2>
-<img src="u3c2a9.jpg" onclick="zoom(this)">
-<p>Fossil fuels form underground.</p>
-</div>
+        <div style="margin-top: 22px;">
+          <button onclick="nextSlide()">Start Session</button>
+        </div>
+      </div>
+    </div>
 
-<!-- Slide 3 -->
-<div class="slide">
-<h2>Activity 10</h2>
-<img src="u3c2a10.jpg" onclick="zoom(this)">
-<p>Burning fuels releases energy.</p>
-</div>
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-inner">
+        <h2>Activity 9: Big City Environmental Problems</h2>
 
-<!-- Slide 4 -->
-<div class="slide">
-<h2>Activity 11</h2>
-<img src="u3c2a11.jpg" onclick="zoom(this)">
-<p>But burning fuels causes pollution.</p>
-</div>
+        <p class="lead">
+          Big cities suffer from many environmental problems because of factories, vehicles, chemicals,
+          pesticides, and the heavy use of fuels.
+        </p>
 
-<!-- Slide 5 -->
-<div class="slide">
-<h2>Activity 12</h2>
-<img src="u3c2a12.jpg" onclick="zoom(this)">
-<p>Using fuels wisely protects Earth.</p>
-</div>
+        <img src="u3c2a9.jpg" alt="Activity 9" class="main-image zoomable">
 
-<!-- Slide 6 -->
-<div class="slide">
-<h2>Activity 13</h2>
-<img src="u3c2a13.jpg" onclick="zoom(this)">
-<p>Renewable energy is the future.</p>
-</div>
+        <ul class="info-list">
+          <li>Smog produced by burning fuels pollutes the air.</li>
+          <li>Pesticides used in farms may pollute soil and water.</li>
+          <li>Chemicals used in factories may pollute air, soil, and water.</li>
+          <li>Air pollution may irritate the eyes and lungs and damage the respiratory system.</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- Slide 7 -->
-<div class="slide">
-<h2>Conclusion</h2>
-<img src="u3c2summary.jpg" onclick="zoom(this)">
-<p>Think like a scientist.</p>
-</div>
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-inner">
+        <h2>Activity 10: Burning Fossil Fuels and Pollution</h2>
 
-<div class="nav">
+        <p class="lead">
+          Fossil fuels such as coal, oil, and natural gas are burned to generate electricity and provide energy,
+          but burning them causes serious pollution problems.
+        </p>
 
-<button onclick="prevSlide()">Previous</button>
-<button onclick="nextSlide()">Next</button>
+        <div class="grid">
+          <div class="card">
+            <img src="u3c2a10.jpg" alt="Burning fossil fuels" class="zoomable">
+            <h3>Burning Fuel</h3>
+            <p>Burning fossil fuels provides energy, but it also pollutes the environment.</p>
+          </div>
 
-</div>
+          <div class="card">
+            <img src="u3c2a102.jpg" alt="Acid rain" class="zoomable">
+            <h3>Acid Rain</h3>
+            <p>Acid rain harms trees, fish, lakes, soil, and even some rocks used for building.</p>
+          </div>
 
-</div>
+          <div class="card">
+            <img src="u3c2a103.jpg" alt="Global warming" class="zoomable">
+            <h3>Global Warming</h3>
+            <p>Carbon dioxide forms a layer in the atmosphere that traps heat and raises Earth’s temperature.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="lightbox" id="lightbox" onclick="closeZoom()">
-<img id="zoomimg">
-</div>
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-inner">
+        <h2>Activity 11: Conserving Fossil Fuels</h2>
 
-<script>
+        <p class="lead">
+          Fossil fuels should be conserved because they are formed over millions of years
+          and cannot be replaced quickly.
+        </p>
 
-let slides=document.querySelectorAll(".slide");
-let index=0;
+        <div class="grid">
+          <div class="card">
+            <img src="u3c2a11.jpg" alt="Using bicycles" class="zoomable">
+            <h3>Use Bicycles</h3>
+            <p>Walking or using bicycles instead of cars helps conserve fossil fuels.</p>
+          </div>
 
-function showSlide(i){
+          <div class="card">
+            <img src="u3c2a112.jpg" alt="Conserve energy" class="zoomable">
+            <h3>Conserve Energy</h3>
+            <p>Turning off lights and reducing energy use helps save fossil fuels.</p>
+          </div>
 
-slides.forEach(s=>s.classList.remove("active"));
+          <div class="card">
+            <img src="u3c2a113.jpg" alt="Renewable energy" class="zoomable">
+            <h3>Use Renewable Energy</h3>
+            <p>Water, wind, and solar energy can replace fossil fuels in many uses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-slides[i].classList.add("active");
+    <!-- Slide 5 -->
+    <div class="slide">
+      <div class="slide-inner">
+        <h2>Activity 12: Using Fuels</h2>
 
-let progress=(i/(slides.length-1))*100;
+        <p class="lead">
+          Fuels can be classified into renewable resources and nonrenewable resources.
+        </p>
 
-document.getElementById("progress").style.width=progress+"%";
-}
+        <div class="grid">
+          <div class="card">
+            <img src="u3c2a12.jpg" alt="Renewable resources" class="zoomable">
+            <h3>Renewable Resources</h3>
+            <p>Solar energy, water, wind energy, wood, and charcoal made from wood.</p>
+          </div>
 
-function nextSlide(){
+          <div class="card">
+            <img src="u3c2a122.jpg" alt="Nonrenewable resources" class="zoomable">
+            <h3>Nonrenewable Resources</h3>
+            <p>Coal, gasoline, oil, and natural gas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-if(index<slides.length-1){
-index++;
-showSlide(index);
-}
+    <!-- Slide 6 -->
+    <div class="slide">
+      <div class="slide-inner">
+        <h2>Activity 13: Record Evidence Like a Scientist</h2>
 
-}
+        <p class="lead">
+          Scientists ask questions, make claims, record evidence, and explain ideas clearly.
+        </p>
 
-function prevSlide(){
+        <img src="u3c2a13.jpg" alt="Activity 13" class="main-image zoomable">
 
-if(index>0){
-index--;
-showSlide(index);
-}
+        <ul class="info-list">
+          <li><b>Question:</b> Where does the fuel we use every day come from?</li>
+          <li><b>Claim:</b> Some fuels come from fossil fuels and some come from renewable resources.</li>
+          <li><b>Evidence:</b> Coal, oil, and natural gas are nonrenewable, while water and wind are renewable.</li>
+          <li><b>Explanation:</b> Fossil fuels are formed over millions of years, but renewable resources can be replaced naturally.</li>
+        </ul>
+      </div>
+    </div>
 
-}
+    <!-- Slide 7 -->
+    <div class="slide">
+      <div class="slide-inner">
+        <h2>Conclusion</h2>
 
-document.addEventListener("keydown",function(e){
+        <p class="lead">
+          In this session, we learned that pollution in big cities has many causes, especially burning fossil fuels.
+          We also learned that conserving energy and using renewable resources help protect the environment.
+        </p>
 
-if(e.key==="ArrowRight") nextSlide();
+        <img src="u3c2summary.jpg" alt="Conclusion" class="main-image zoomable">
 
-if(e.key==="ArrowLeft") prevSlide();
+        <ul class="info-list">
+          <li>Burning fossil fuels causes pollution.</li>
+          <li>Big cities suffer from environmental problems.</li>
+          <li>Conserving fossil fuels is very important.</li>
+          <li>Renewable resources are safer for the future.</li>
+        </ul>
+      </div>
+    </div>
 
-});
+  </div>
 
-/* fullscreen */
+  <div class="nav">
+    <div class="nav-buttons">
+      <button onclick="prevSlide()">⬅ Back</button>
+      <button onclick="nextSlide()">Next ➡</button>
+    </div>
 
-function openFullscreen(){
+    <div class="counter" id="counter"></div>
+    <div class="slide-indicators" id="slideIndicators"></div>
+    <div class="hint">Use keyboard arrows on desktop or swipe on mobile.</div>
+  </div>
 
-document.documentElement.requestFullscreen();
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="close-lightbox" onclick="closeLightbox()">×</button>
+      <img id="lightboxImg" src="" alt="Zoomed image">
+    </div>
+  </div>
 
-}
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll(".slide");
+    const counter = document.getElementById("counter");
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const indicators = document.getElementById("slideIndicators");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
 
-/* lightbox */
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-function zoom(img){
+    function createIndicators() {
+      indicators.innerHTML = "";
+      slides.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.addEventListener("click", () => {
+          current = index;
+          showSlide(current);
+        });
+        indicators.appendChild(dot);
+      });
+    }
 
-document.getElementById("lightbox").style.display="flex";
+    function updateIndicators() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === current);
+      });
+    }
 
-document.getElementById("zoomimg").src=img.src;
+    function showSlide(i) {
+      slides.forEach((s, index) => {
+        s.classList.toggle("active", index === i);
+      });
 
-}
+      counter.textContent = "Slide " + (i + 1) + " of " + slides.length;
+      progressText.textContent = "Session 5 • Slide " + (i + 1) + " of " + slides.length;
+      const progress = ((i + 1) / slides.length) * 100;
+      progressBar.style.width = progress + "%";
 
-function closeZoom(){
+      updateIndicators();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-document.getElementById("lightbox").style.display="none";
+    function nextSlide() {
+      if (current < slides.length - 1) {
+        current++;
+        showSlide(current);
+      }
+    }
 
-}
+    function prevSlide() {
+      if (current > 0) {
+        current--;
+        showSlide(current);
+      }
+    }
 
-</script>
+    function goHome() {
+      current = 0;
+      showSlide(current);
+    }
+
+    function toggleFull() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    function openLightbox(src, altText) {
+      lightboxImg.src = src;
+      lightboxImg.alt = altText || "Zoomed image";
+      lightbox.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".zoomable").forEach(img => {
+      img.addEventListener("click", () => {
+        openLightbox(img.src, img.alt);
+      });
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (lightbox.classList.contains("show") && e.key === "Escape") {
+        closeLightbox();
+        return;
+      }
+
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    });
+
+    document.addEventListener("touchstart", function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.addEventListener("touchend", function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) < 50) return;
+
+      if (diff < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+
+    createIndicators();
+    showSlide(current);
+  </script>
 
 </body>
 </html>
