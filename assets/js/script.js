@@ -2,21 +2,33 @@ let current = 0;
 let revealIndex = 0;
 
 function loadLesson() {
-  document.getElementById("lessonTitle").textContent = lessonData.title;
-  document.getElementById("lessonInfo").textContent = lessonData.info;
+  if (typeof lessonData === "undefined") {
+    document.getElementById("slidesContainer").innerHTML =
+      '<p style="color:red; font-weight:bold;">Error: lessonData was not loaded.</p>';
+    return;
+  }
+
+  document.getElementById("lessonTitle").textContent = lessonData.title || "";
+  document.getElementById("lessonInfo").textContent = lessonData.info || "";
 
   const container = document.getElementById("slidesContainer");
   container.innerHTML = "";
 
+  if (!lessonData.slides || !lessonData.slides.length) {
+    container.innerHTML =
+      '<p style="color:red; font-weight:bold;">Error: No slides found in lessonData.</p>';
+    return;
+  }
+
   lessonData.slides.forEach((slide, i) => {
-    let html = `<h2 class="reveal-item">${slide.title}</h2>`;
+    let html = `<h2 class="reveal-item">${slide.title || ""}</h2>`;
 
     if (slide.text) {
       html += `<p class="lead reveal-item">${slide.text}</p>`;
     }
 
     if (slide.image) {
-      html += `<img src="${slide.image}" class="main-image reveal-item" alt="${slide.title}">`;
+      html += `<img src="${slide.image}" class="main-image reveal-item" alt="${slide.title || ""}">`;
     }
 
     if (slide.bullets) {
@@ -45,7 +57,6 @@ function loadLesson() {
     div.className = "slide";
     if (i === 0) div.classList.add("active");
     div.innerHTML = html;
-
     container.appendChild(div);
   });
 
@@ -54,6 +65,9 @@ function loadLesson() {
 
 function showSlide(i) {
   const slides = document.querySelectorAll(".slide");
+
+  if (!slides.length) return;
+  if (i < 0 || i >= slides.length) return;
 
   slides.forEach(s => s.classList.remove("active"));
   slides[i].classList.add("active");
@@ -113,4 +127,4 @@ function prevSlide() {
   }
 }
 
-window.onload = loadLesson;
+document.addEventListener("DOMContentLoaded", loadLesson);
