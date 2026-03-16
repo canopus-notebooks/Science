@@ -3,24 +3,58 @@ let current = 0;
 function loadLesson() {
 
 document.getElementById("lessonTitle").textContent = lessonData.title;
-
 document.getElementById("lessonInfo").textContent = lessonData.info;
 
 const container = document.getElementById("slidesContainer");
 
 lessonData.slides.forEach((slide, i) => {
 
-const div = document.createElement("div");
+let html = `<h2>${slide.title}</h2>`;
 
+if (slide.text) {
+html += `<p class="lead">${slide.text}</p>`;
+}
+
+if (slide.image) {
+html += `<img src="${slide.image}" class="main-image">`;
+}
+
+if (slide.bullets) {
+
+html += `<ul class="info-list">`;
+
+slide.bullets.forEach(item => {
+html += `<li>${item}</li>`;
+});
+
+html += `</ul>`;
+}
+
+if (slide.cards) {
+
+html += `<div class="grid">`;
+
+slide.cards.forEach(card => {
+
+html += `
+<div class="card">
+<img src="${card.image}">
+<h3>${card.title}</h3>
+<p>${card.text}</p>
+</div>
+`;
+
+});
+
+html += `</div>`;
+}
+
+const div = document.createElement("div");
 div.className = "slide";
 
 if (i === 0) div.classList.add("active");
 
-div.innerHTML = `
-<h2>${slide.title}</h2>
-<img src="${slide.image}">
-<p>${slide.text}</p>
-`;
+div.innerHTML = html;
 
 container.appendChild(div);
 
@@ -52,7 +86,6 @@ function nextSlide() {
 if (current < lessonData.slides.length - 1) {
 
 current++;
-
 showSlide(current);
 
 }
@@ -64,7 +97,6 @@ function prevSlide() {
 if (current > 0) {
 
 current--;
-
 showSlide(current);
 
 }
