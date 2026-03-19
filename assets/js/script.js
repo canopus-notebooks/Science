@@ -61,6 +61,7 @@ function loadLesson() {
   });
 
   showSlide(0);
+  setupRevealClick();
 }
 
 function showSlide(i) {
@@ -71,6 +72,8 @@ function showSlide(i) {
 
   slides.forEach(s => s.classList.remove("active"));
   slides[i].classList.add("active");
+
+  current = i;
 
   document.getElementById("counter").textContent =
     "Slide " + (i + 1) + " of " + slides.length;
@@ -112,9 +115,7 @@ function revealNextItem() {
 }
 
 function nextSlide() {
-  const hasMoreItems = revealNextItem();
-
-  if (!hasMoreItems && current < lessonData.slides.length - 1) {
+  if (current < lessonData.slides.length - 1) {
     current++;
     showSlide(current);
   }
@@ -124,6 +125,26 @@ function prevSlide() {
   if (current > 0) {
     current--;
     showSlide(current);
+  }
+}
+
+function setupRevealClick() {
+  const container = document.getElementById("slidesContainer");
+  if (!container) return;
+
+  container.addEventListener("click", function (e) {
+    if (e.target.closest("button")) return;
+    revealNextItem();
+  });
+}
+
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(err => {
+      console.log("Fullscreen error:", err);
+    });
+  } else {
+    document.exitFullscreen();
   }
 }
 
