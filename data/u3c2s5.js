@@ -1,116 +1,141 @@
 const lessonData = {
   title: "Pollution, Fossil Fuels, and Energy Conservation",
-  info: "Junior 4 Science • Unit 3 • Concept 2 • Session 5",
+  info: "Unit 3 - Concept 2 - Session 5",
 
   slides: [
+
+    // 🔹 Activity 9
     {
-      title: "Introduction",
-      text: "In this session, we will learn about pollution in big cities, burning fossil fuels, conserving fossil fuels, using fuels, and how scientists record evidence and explain ideas clearly.",
-      image: "u3c2intro.jpg",
+      title: "Activity 9 - Environmental Problems",
+      text: "Big cities have many environmental problems because of human activities."
+    },
+    {
+      title: "Explanation",
       bullets: [
-        "We will study environmental problems in big cities.",
-        "We will learn the harmful effects of burning fossil fuels.",
-        "We will learn how to conserve fossil fuels.",
-        "We will compare renewable and nonrenewable fuels.",
-        "We will think like scientists and use evidence."
+        "Factories produce smoke",
+        "Cars produce smog",
+        "Farms use pesticides",
+        "All these cause pollution"
       ]
     },
-
     {
-      title: "Activity 9: Big City Environmental Problems",
-      text: "Big cities suffer from many environmental problems because of factories, vehicles, chemicals, pesticides, and the heavy use of fuels.",
-      image: "u3c2a9.jpg",
+      title: "Types of Pollution",
       bullets: [
-        "Smog produced by burning fuels pollutes the air.",
-        "Pesticides used in farms may pollute soil and water.",
-        "Chemicals used in factories may pollute air, soil, and water.",
-        "Air pollution may irritate the eyes and lungs and damage the respiratory system."
+        "Air pollution",
+        "Water pollution",
+        "Soil pollution"
       ]
     },
-
     {
-      title: "Activity 10: Burning Fossil Fuels and Pollution",
-      text: "Fossil fuels such as coal, oil, and natural gas are burned to generate electricity and provide energy, but burning them causes serious pollution problems.",
-      cards: [
-        {
-          image: "u3c2a10.jpg",
-          title: "Burning Fuel",
-          text: "Burning fossil fuels provides energy, but it also pollutes the environment."
-        },
-        {
-          image: "u3c2a102.jpg",
-          title: "Acid Rain",
-          text: "Acid rain harms trees, fish, lakes, soil, and even some rocks used for building."
-        },
-        {
-          image: "u3c2a103.jpg",
-          title: "Global Warming",
-          text: "Carbon dioxide forms a layer in the atmosphere that traps heat and raises Earth’s temperature."
-        }
-      ]
-    },
-
-    {
-      title: "Activity 11: Conserving Fossil Fuels",
-      text: "Fossil fuels should be conserved because they are formed over millions of years and cannot be replaced quickly.",
-      cards: [
-        {
-          image: "u3c2a11.jpg",
-          title: "Use Bicycles",
-          text: "Walking or using bicycles instead of cars helps conserve fossil fuels."
-        },
-        {
-          image: "u3c2a112.jpg",
-          title: "Conserve Energy",
-          text: "Turning off lights and reducing energy use helps save fossil fuels."
-        },
-        {
-          image: "u3c2a113.jpg",
-          title: "Use Renewable Energy",
-          text: "Water, wind, and solar energy can replace fossil fuels in many uses."
-        }
-      ]
-    },
-
-    {
-      title: "Activity 12: Using Fuels",
-      text: "Fuels can be classified into renewable resources and nonrenewable resources.",
-      cards: [
-        {
-          image: "u3c2a12.jpg",
-          title: "Renewable Resources",
-          text: "Solar energy, water, wind energy, wood, and charcoal made from wood."
-        },
-        {
-          image: "u3c2a122.jpg",
-          title: "Nonrenewable Resources",
-          text: "Coal, gasoline, oil, and natural gas."
-        }
-      ]
-    },
-
-    {
-      title: "Activity 13: Record Evidence Like a Scientist",
-      text: "Scientists ask questions, make claims, record evidence, and explain ideas clearly.",
-      image: "u3c2a13.jpg",
+      title: "Effects on Humans",
       bullets: [
-        "Question: Where does the fuel we use every day come from?",
-        "Claim: Some fuels come from fossil fuels and some come from renewable resources.",
-        "Evidence: Coal, oil, and natural gas are nonrenewable, while water and wind are renewable.",
-        "Explanation: Fossil fuels are formed over millions of years, but renewable resources can be replaced naturally."
+        "Smog causes irritation of eyes and lungs",
+        "Small particles damage the respiratory system"
       ]
     },
 
+    // 🔹 Activity 10
     {
-      title: "Conclusion",
-      text: "In this session, we learned that pollution in big cities has many causes, especially burning fossil fuels. We also learned that conserving energy and using renewable resources help protect the environment.",
-      image: "u3c2summary.jpg",
+      title: "Activity 10 - Burning Fossil Fuels and Pollution",
+      text: "Burning fossil fuels produces energy but causes pollution."
+    },
+    {
+      title: "What are Fossil Fuels",
       bullets: [
-        "Burning fossil fuels causes pollution.",
-        "Big cities suffer from environmental problems.",
-        "Conserving fossil fuels is very important.",
-        "Renewable resources are safer for the future."
+        "Coal",
+        "Oil",
+        "Natural gas",
+        "They are used in electric power stations"
+      ]
+    },
+    {
+      title: "What Happens When We Burn Them",
+      bullets: [
+        "They produce carbon dioxide (CO₂)"
+      ]
+    },
+    {
+      title: "Acid Rain",
+      bullets: [
+        "CO₂ combines with water to form acid rain",
+        "Death of trees",
+        "Killing fish",
+        "Change in soil and water",
+        "Dissolving rocks"
+      ]
+    },
+    {
+      title: "Global Warming",
+      bullets: [
+        "CO₂ forms a layer in the atmosphere that traps heat",
+        "Increase in Earth's temperature",
+        "Climate change"
+      ]
+    },
+
+    // 🔹 Activity 11
+    {
+      title: "Activity 11 - Conserving Fossil Fuels",
+      text: "Fossil fuels are limited and nonrenewable."
+    },
+    {
+      title: "Explanation",
+      bullets: [
+        "They are formed over millions of years",
+        "So we must conserve them"
+      ]
+    },
+    {
+      title: "Ways to Conserve Energy",
+      bullets: [
+        "Walking or cycling instead of cars",
+        "Turning off lights when not needed",
+        "Using renewable energy"
+      ]
+    },
+
+    // 🔹 Activity 12
+    {
+      title: "Activity 12 - Using Fuels",
+      text: "Fuels are used in daily life for cooking and electricity."
+    },
+    {
+      title: "Renewable Energy",
+      bullets: [
+        "Solar energy",
+        "Wind energy",
+        "Water",
+        "Wood",
+        "They can be replaced"
+      ]
+    },
+    {
+      title: "Nonrenewable Energy",
+      bullets: [
+        "Coal",
+        "Oil",
+        "Gasoline",
+        "Natural gas",
+        "They cannot be replaced quickly"
+      ]
+    },
+
+    // 🔥 Final Summary (أهم نقطة زي ما طلبت)
+    {
+      title: "Important Summary",
+      bullets: [
+        "Pollution is caused by human activities like factories and cars",
+        "There are three types of pollution: air, water, and soil",
+        "Smog from cars causes irritation to eyes and lungs",
+        "Fossil fuels include coal, oil, and natural gas",
+        "Burning fossil fuels produces carbon dioxide (CO₂)",
+        "CO₂ causes acid rain and global warming",
+        "Acid rain damages trees, fish, soil, and rocks",
+        "Global warming increases Earth's temperature",
+        "Fossil fuels are nonrenewable and limited",
+        "We should conserve energy and use renewable energy like solar and wind"
       ]
     }
+
   ]
 };
