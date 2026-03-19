@@ -7,7 +7,8 @@ const lessonData = {
     // 🔹 Activity 9
     {
       title: "Activity 9 - Environmental Problems",
-      text: "Big cities have many environmental problems because of human activities."
+      text: "Big cities have many environmental problems because of human activities.",
+      image: "u3c2a9.jpg"
     },
     {
       title: "Explanation",
@@ -37,7 +38,8 @@ const lessonData = {
     // 🔹 Activity 10
     {
       title: "Activity 10 - Burning Fossil Fuels and Pollution",
-      text: "Burning fossil fuels produces energy but causes pollution."
+      text: "Burning fossil fuels produces energy but causes pollution.",
+      image: "u3c2a10.jpg"
     },
     {
       title: "What are Fossil Fuels",
@@ -76,7 +78,8 @@ const lessonData = {
     // 🔹 Activity 11
     {
       title: "Activity 11 - Conserving Fossil Fuels",
-      text: "Fossil fuels are limited and nonrenewable."
+      text: "Fossil fuels are limited and nonrenewable.",
+      image: "u3c2a11.jpg"
     },
     {
       title: "Explanation",
@@ -97,7 +100,8 @@ const lessonData = {
     // 🔹 Activity 12
     {
       title: "Activity 12 - Using Fuels",
-      text: "Fuels are used in daily life for cooking and electricity."
+      text: "Fuels are used in daily life for cooking and electricity.",
+      image: "u3c2a12.jpg"
     },
     {
       title: "Renewable Energy",
@@ -120,7 +124,7 @@ const lessonData = {
       ]
     },
 
-    // 🔥 Final Summary (أهم نقطة زي ما طلبت)
+    // 🔥 Final Summary
     {
       title: "Important Summary",
       bullets: [
