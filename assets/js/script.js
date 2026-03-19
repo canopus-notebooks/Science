@@ -22,9 +22,20 @@ function loadLesson() {
 
   lessonData.slides.forEach((slide, i) => {
     let html = `
-      <div class="slide-click-layer"></div>
-      <button class="reveal-arrow reveal-left" type="button" aria-label="Previous animation" onclick="event.stopPropagation(); revealPrevItem();">❮</button>
-      <button class="reveal-arrow reveal-right" type="button" aria-label="Next animation" onclick="event.stopPropagation(); revealNextItem();">❯</button>
+      <button
+        class="reveal-arrow reveal-left"
+        type="button"
+        aria-label="Previous animation"
+        onclick="event.stopPropagation(); revealPrevStep();"
+      >❮</button>
+
+      <button
+        class="reveal-arrow reveal-right"
+        type="button"
+        aria-label="Next animation"
+        onclick="event.stopPropagation(); revealNextStep();"
+      >❯</button>
+
       <h2 class="reveal-item">${slide.title || ""}</h2>
     `;
 
@@ -66,16 +77,47 @@ function loadLesson() {
   });
 
   showSlide(0);
-  setupRevealClick();
+  setupSlideClick();
+}
+
+function getSlides() {
+  return document.querySelectorAll(".slide");
+}
+
+function getActiveSlide() {
+  return document.querySelector(".slide.active");
+}
+
+function getRevealItems() {
+  const activeSlide = getActiveSlide();
+  return activeSlide ? activeSlide.querySelectorAll(".reveal-item") : [];
+}
+
+function applyRevealState() {
+  const items = getRevealItems();
+
+  items.forEach((item, index) => {
+    if (index < revealIndex) {
+      item.classList.add("visible");
+    } else {
+      item.classList.remove("visible");
+    }
+  });
+}
+
+function resetReveal() {
+  const items = getRevealItems();
+  revealIndex = items.length > 0 ? 1 : 0;
+  applyRevealState();
 }
 
 function showSlide(i) {
-  const slides = document.querySelectorAll(".slide");
+  const slides = getSlides();
 
   if (!slides.length) return;
   if (i < 0 || i >= slides.length) return;
 
-  slides.forEach(s => s.classList.remove("active"));
+  slides.forEach(slide => slide.classList.remove("active"));
   slides[i].classList.add("active");
 
   current = i;
@@ -83,113 +125,84 @@ function showSlide(i) {
   document.getElementById("counter").textContent =
     "Slide " + (i + 1) + " of " + slides.length;
 
-  const progress = ((i + 1) / slides.length) * 100;
-  document.getElementById("progressBar").style.width = progress + "%";
+  document.getElementById("progressBar").style.width =
+    ((i + 1) / slides.length) * 100 + "%";
 
   resetReveal();
 }
 
-function resetReveal() {
-  const activeSlide = document.querySelector(".slide.active");
-  if (!activeSlide) return;
-
-  const items = activeSlide.querySelectorAll(".reveal-item");
-  items.forEach(item => item.classList.remove("visible"));
-
-  revealIndex = 0;
-
-  if (items.length > 0) {
-    items[0].classList.add("visible");
-    revealIndex = 1;
-  }
-}
-
-function revealNextItem() {
-  const activeSlide = document.querySelector(".slide.active");
-  if (!activeSlide) return false;
-
-  const items = activeSlide.querySelectorAll(".reveal-item");
-
-  if (revealIndex < items.length) {
-    items[revealIndex].classList.add("visible");
-    revealIndex++;
-    return true;
-  }
-
-  return false;
-}
-
-function revealPrevItem() {
-  const activeSlide = document.querySelector(".slide.active");
-  if (!activeSlide) return false;
-
-  const items = activeSlide.querySelectorAll(".reveal-item");
-
-  if (revealIndex > 1) {
-    revealIndex--;
-    items[revealIndex - 1].classList.remove("visible");
-    return true;
-  }
-
-  return false;
-}
-
 function nextSlide() {
   if (current < lessonData.slides.length - 1) {
-    current++;
-    showSlide(current);
+    showSlide(current + 1);
   }
 }
 
 function prevSlide() {
   if (current > 0) {
-    current--;
-    showSlide(current);
+    showSlide(current - 1);
   }
 }
 
-function setupRevealClick() {
+function revealNextStep() {
+  const items = getRevealItems();
+
+  if (!items.length) return;
+
+  if (revealIndex < items.length) {
+    revealIndex++;
+    applyRevealState();
+    return;
+  }
+
+  if (current < lessonData.slides.length - 1) {
+    showSlide(current + 1);
+  }
+}
+
+function revealPrevStep() {
+  const items = getRevealItems();
+
+  if (!items.length) return;
+
+  if (revealIndex > 1) {
+    revealIndex--;
+    applyRevealState();
+    return;
+  }
+
+  if (current > 0) {
+    showSlide(current - 1);
+
+    const previousItems = getRevealItems();
+    revealIndex = previousItems.length;
+    applyRevealState();
+  }
+}
+
+function setupSlideClick() {
   const container = document.getElementById("slidesContainer");
   if (!container) return;
 
   container.addEventListener("click", function (e) {
-    if (
-      e.target.closest(".reveal-arrow") ||
-      e.target.closest(".nav button")
-    ) {
-      return;
-    }
-
-    const activeSlide = document.querySelector(".slide.active");
-    if (!activeSlide) return;
-
-    if (activeSlide.contains(e.target)) {
-      revealNextItem();
-    }
+    if (e.target.closest(".reveal-arrow")) return;
+    revealNextStep();
   });
 }
 
 function toggleFullScreen() {
-  const element = document.documentElement;
+  const page = document.documentElement;
 
-  if (!document.fullscreenElement &&
-      !document.webkitFullscreenElement &&
-      !document.msFullscreenElement) {
-
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) {
-      element.msRequestFullscreen();
+  if (!document.fullscreenElement) {
+    if (page.requestFullscreen) {
+      page.requestFullscreen().catch(err => {
+        console.log("Fullscreen error:", err);
+      });
     }
   } else {
     if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
+      document.exitFullscreen().catch(err => {
+        console.log("Exit fullscreen error:", err);
+      });
     }
   }
 }
