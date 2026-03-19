@@ -3,15 +3,11 @@ const lessonData = {
   info: "Junior 4 Science - Unit 3 - Concept 2 - Session 5",
 
   slides: [
-
-    // 🔹 Introduction
     {
       title: "Introduction",
       text: "In this session we will learn about pollution, fossil fuels, harmful effects of burning fossil fuels, and ways to conserve energy.",
       image: "u3c2intro.jpg"
     },
-
-    // 🔹 Activity 9
     {
       title: "Activity 9",
       text: "Main idea: Big cities have many environmental problems because of human activities.",
@@ -28,8 +24,6 @@ const lessonData = {
         "Small particles damage the respiratory system"
       ]
     },
-
-    // 🔹 Activity 10
     {
       title: "Activity 10",
       text: "Main idea: Burning fossil fuels produces energy but causes pollution.",
@@ -55,8 +49,6 @@ const lessonData = {
         "Global warming results: increase in Earth's temperature and climate change"
       ]
     },
-
-    // 🔹 Activity 11
     {
       title: "Activity 11",
       text: "Main idea: Fossil fuels are limited and nonrenewable.",
@@ -78,8 +70,6 @@ const lessonData = {
         }
       ]
     },
-
-    // 🔹 Activity 12
     {
       title: "Activity 12",
       text: "Main idea: Fuels are used in daily life.",
@@ -96,8 +86,6 @@ const lessonData = {
         }
       ]
     },
-
-    // 🔹 Conclusion
     {
       title: "Important Summary",
       image: "u3c2summary.jpg",
@@ -114,6 +102,5 @@ const lessonData = {
         "We should conserve energy and use renewable energy like solar and wind"
       ]
     }
-
   ]
 };
