@@ -20,23 +20,25 @@
   <div id="slidesContainer"></div>
 
   <div class="nav">
-    <button onclick="prevSlide()">⬅ Previous Slide</button>
-    <button onclick="nextSlide()">Next Slide ➡</button>
-    <button onclick="toggleFullScreen()">⛶ Full Screen</button>
+    <button type="button" onclick="prevSlide()">⬅ Previous Slide</button>
+    <button type="button" onclick="nextSlide()">Next Slide ➡</button>
+    <button type="button" onclick="toggleFullScreen()">⛶ Full Screen</button>
     <div id="counter"></div>
   </div>
 
-  <!-- 🔥 AUTO UPDATE -->
   <script>
     const version = Date.now();
 
-    const script1 = document.createElement("script");
-    script1.src = "data/u3c2s5.js?v=" + version;
-    document.body.appendChild(script1);
+    const lessonScript = document.createElement("script");
+    lessonScript.src = "data/u3c2s5.js?v=" + version;
 
-    const script2 = document.createElement("script");
-    script2.src = "assets/js/script.js?v=" + version;
-    document.body.appendChild(script2);
+    lessonScript.onload = function () {
+      const appScript = document.createElement("script");
+      appScript.src = "assets/js/script.js?v=" + version;
+      document.body.appendChild(appScript);
+    };
+
+    document.body.appendChild(lessonScript);
   </script>
 
 </body>
