@@ -48,6 +48,7 @@ header p {
   margin: auto;
   padding: 30px 18px;
   animation: fadeSlide 0.45s ease;
+  cursor: pointer;
 }
 
 .slide.active {
@@ -148,6 +149,11 @@ header p {
 
 .nav {
   margin: 18px 0 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 button {
@@ -167,6 +173,7 @@ button:hover {
 }
 
 #counter {
+  width: 100%;
   margin-top: 14px;
   font-weight: bold;
   color: #0b3d91;
@@ -183,6 +190,18 @@ button:hover {
 .reveal-item.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+:fullscreen body {
+  background: #000;
+}
+
+:fullscreen header {
+  padding: 18px 16px;
+}
+
+:fullscreen .slide {
+  padding-top: 20px;
 }
 
 @media (max-width: 700px) {
