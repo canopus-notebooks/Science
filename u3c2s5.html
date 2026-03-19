@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Session 5 - Pollution, Fossil Fuels, and Energy Conservation</title>
+  <title>Session 5</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -20,13 +20,24 @@
   <div id="slidesContainer"></div>
 
   <div class="nav">
-    <button type="button" onclick="prevSlide()">⬅ Previous Slide</button>
-    <button type="button" onclick="nextSlide()">Next Slide ➡</button>
-    <button type="button" onclick="toggleFullScreen()">⛶ Full Screen</button>
+    <button onclick="prevSlide()">⬅ Previous Slide</button>
+    <button onclick="nextSlide()">Next Slide ➡</button>
+    <button onclick="toggleFullScreen()">⛶ Full Screen</button>
     <div id="counter"></div>
   </div>
 
-  <script src="data/u3c2s5.js"></script>
-  <script src="assets/js/script.js"></script>
+  <!-- 🔥 AUTO UPDATE -->
+  <script>
+    const version = Date.now();
+
+    const script1 = document.createElement("script");
+    script1.src = "data/u3c2s5.js?v=" + version;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement("script");
+    script2.src = "assets/js/script.js?v=" + version;
+    document.body.appendChild(script2);
+  </script>
+
 </body>
 </html>
