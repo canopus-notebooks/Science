@@ -47,58 +47,13 @@ header p {
   position: relative;
   max-width: 1050px;
   margin: auto;
-  padding: 30px 18px;
-  animation: fadeSlide 0.45s ease;
+  padding: 30px 70px;
   min-height: 420px;
+  animation: fadeSlide 0.45s ease;
 }
 
 .slide.active {
   display: block;
-}
-
-.slide-click-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: transparent;
-}
-
-.slide h2,
-.lead,
-.main-image,
-.info-list,
-.grid {
-  position: relative;
-  z-index: 2;
-}
-
-.reveal-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  font-size: 28px;
-  font-weight: bold;
-  background: rgba(0, 119, 182, 0.9);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.25);
-}
-
-.reveal-left {
-  left: 10px;
-}
-
-.reveal-right {
-  right: 10px;
-}
-
-.reveal-arrow:hover {
-  background: #023e8a;
 }
 
 @keyframes fadeSlide {
@@ -110,6 +65,15 @@ header p {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.slide h2,
+.lead,
+.main-image,
+.info-list,
+.grid {
+  position: relative;
+  z-index: 2;
 }
 
 .slide h2 {
@@ -237,21 +201,56 @@ button:hover {
   transform: translateY(0);
 }
 
+.reveal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  background: rgba(0, 119, 182, 0.9);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.25);
+}
+
+.reveal-left {
+  left: 10px;
+}
+
+.reveal-right {
+  right: 10px;
+}
+
+.reveal-arrow:hover {
+  background: #023e8a;
+}
+
+:fullscreen,
 :fullscreen body {
-  background: #000;
+  background: linear-gradient(180deg, #caf0f8, #e0f7ff);
 }
 
 :fullscreen header {
-  padding: 18px 16px;
+  padding: 28px 16px;
 }
 
 :fullscreen .slide {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 @media (max-width: 700px) {
   header h1 {
     font-size: 1.5rem;
+  }
+
+  .slide {
+    padding: 24px 44px;
+    min-height: 320px;
   }
 
   .slide h2 {
