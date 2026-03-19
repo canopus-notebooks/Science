@@ -1,119 +1,214 @@
-const lessonData = {
-  title: "Pollution, Fossil Fuels, and Energy Conservation",
-  info: "Junior 4 Science - Unit 3 - Concept 2 - Session 5",
+let current = 0;
+let revealIndex = 0;
 
-  slides: [
+function loadLesson() {
+  if (typeof lessonData === "undefined") {
+    document.getElementById("slidesContainer").innerHTML =
+      '<p style="color:red; font-weight:bold;">Error: lessonData was not loaded.</p>';
+    return;
+  }
 
-    // 🔹 Introduction
-    {
-      title: "Introduction",
-      text: "In this session we will learn about pollution, fossil fuels, harmful effects of burning fossil fuels, and ways to conserve energy.",
-      image: "u3c2intro.jpg"
-    },
+  document.getElementById("lessonTitle").textContent = lessonData.title || "";
+  document.getElementById("lessonInfo").textContent = lessonData.info || "";
 
-    // 🔹 Activity 9
-    {
-      title: "Activity 9",
-      text: "Main idea: Big cities have many environmental problems because of human activities.",
-      cards: [
-        {
-          image: "u3c2a9.jpg",
-          title: "Causes of Pollution",
-          text: "Factories produce smoke, cars produce smog, and farms use pesticides. All these cause pollution."
-        }
-      ],
-      bullets: [
-        "Types of pollution: air pollution, water pollution, soil pollution",
-        "Smog causes irritation of eyes and lungs",
-        "Small particles damage the respiratory system"
-      ]
-    },
+  const container = document.getElementById("slidesContainer");
+  container.innerHTML = "";
 
-    // 🔹 Activity 10
-    {
-      title: "Activity 10",
-      text: "Main idea: Burning fossil fuels produces energy but causes pollution.",
-      cards: [
-        {
-          image: "u3c2a10.jpg",
-          title: "Fossil Fuels",
-          text: "Coal, oil, and natural gas are fossil fuels used in power stations."
-        },
-        {
-          image: "u3c2a102.jpg",
-          title: "Acid Rain",
-          text: "Carbon dioxide combines with water to form acid rain."
-        },
-        {
-          image: "u3c2a103.jpg",
-          title: "Global Warming",
-          text: "CO2 traps heat in the atmosphere causing global warming."
-        }
-      ],
-      bullets: [
-        "Acid rain results: death of trees, killing fish, changes in soil and water, dissolving rocks",
-        "Global warming results: increase in Earth's temperature and climate change"
-      ]
-    },
+  if (!lessonData.slides || !lessonData.slides.length) {
+    container.innerHTML =
+      '<p style="color:red; font-weight:bold;">Error: No slides found in lessonData.</p>';
+    return;
+  }
 
-    // 🔹 Activity 11
-    {
-      title: "Activity 11",
-      text: "Main idea: Fossil fuels are limited and nonrenewable.",
-      cards: [
-        {
-          image: "u3c2a11.jpg",
-          title: "Nonrenewable",
-          text: "Fossil fuels form over millions of years."
-        },
-        {
-          image: "u3c2a112.jpg",
-          title: "Save Energy",
-          text: "Turn off lights and reduce fuel use."
-        },
-        {
-          image: "u3c2a113.jpg",
-          title: "Renewable Energy",
-          text: "Use solar and wind energy."
-        }
-      ]
-    },
+  lessonData.slides.forEach((slide, i) => {
+    let html = `
+      <button
+        class="reveal-arrow reveal-left"
+        type="button"
+        aria-label="Previous animation"
+        onclick="event.stopPropagation(); revealPrevStep();"
+      >❮</button>
 
-    // 🔹 Activity 12
-    {
-      title: "Activity 12",
-      text: "Main idea: Fuels are used in daily life.",
-      cards: [
-        {
-          image: "u3c2a12.jpg",
-          title: "Renewable Energy",
-          text: "Solar, wind, water, and wood can be replaced."
-        },
-        {
-          image: "u3c2a122.jpg",
-          title: "Nonrenewable Energy",
-          text: "Coal, oil, gasoline, and natural gas cannot be replaced quickly."
-        }
-      ]
-    },
+      <button
+        class="reveal-arrow reveal-right"
+        type="button"
+        aria-label="Next animation"
+        onclick="event.stopPropagation(); revealNextStep();"
+      >❯</button>
 
-    // 🔹 Conclusion
-    {
-      title: "Important Summary",
-      image: "u3c2summary.jpg",
-      bullets: [
-        "Pollution is caused by human activities like factories and cars",
-        "There are three types of pollution: air, water, and soil",
-        "Smog causes irritation to eyes and lungs",
-        "Fossil fuels include coal, oil, and natural gas",
-        "Burning fossil fuels produces carbon dioxide (CO2)",
-        "CO2 causes acid rain and global warming",
-        "Acid rain damages trees, fish, soil, and rocks",
-        "Global warming increases Earth's temperature",
-        "Fossil fuels are nonrenewable and limited",
-        "We should conserve energy and use renewable energy like solar and wind"
-      ]
+      <h2 class="reveal-item">${slide.title || ""}</h2>
+    `;
+
+    if (slide.text) {
+      html += `<p class="lead reveal-item">${slide.text}</p>`;
     }
 
-  ]
-};
+    if (slide.image) {
+      html += `<img src="${slide.image}" class="main-image reveal-item" alt="${slide.title || ""}">`;
+    }
+
+    if (slide.bullets) {
+      html += `<ul class="info-list">`;
+      slide.bullets.forEach(item => {
+        html += `<li class="reveal-item">${item}</li>`;
+      });
+      html += `</ul>`;
+    }
+
+    if (slide.cards) {
+      html += `<div class="grid">`;
+      slide.cards.forEach(card => {
+        html += `
+          <div class="card reveal-item">
+            <img src="${card.image}" alt="${card.title}">
+            <h3>${card.title}</h3>
+            <p>${card.text}</p>
+          </div>
+        `;
+      });
+      html += `</div>`;
+    }
+
+    const div = document.createElement("div");
+    div.className = "slide";
+    if (i === 0) div.classList.add("active");
+    div.innerHTML = html;
+    container.appendChild(div);
+  });
+
+  showSlide(0);
+  setupSlideClick();
+}
+
+function getSlides() {
+  return document.querySelectorAll(".slide");
+}
+
+function getActiveSlide() {
+  return document.querySelector(".slide.active");
+}
+
+function getRevealItems() {
+  const activeSlide = getActiveSlide();
+  return activeSlide ? activeSlide.querySelectorAll(".reveal-item") : [];
+}
+
+function applyRevealState() {
+  const items = getRevealItems();
+
+  items.forEach((item, index) => {
+    if (index < revealIndex) {
+      item.classList.add("visible");
+    } else {
+      item.classList.remove("visible");
+    }
+  });
+}
+
+function resetReveal() {
+  const items = getRevealItems();
+  revealIndex = items.length > 0 ? 1 : 0;
+  applyRevealState();
+}
+
+function showSlide(i) {
+  const slides = getSlides();
+
+  if (!slides.length) return;
+  if (i < 0 || i >= slides.length) return;
+
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[i].classList.add("active");
+
+  current = i;
+
+  document.getElementById("counter").textContent =
+    "Slide " + (i + 1) + " of " + slides.length;
+
+  document.getElementById("progressBar").style.width =
+    ((i + 1) / slides.length) * 100 + "%";
+
+  resetReveal();
+}
+
+function nextSlide() {
+  if (current < lessonData.slides.length - 1) {
+    showSlide(current + 1);
+  }
+}
+
+function prevSlide() {
+  if (current > 0) {
+    showSlide(current - 1);
+  }
+}
+
+function revealNextStep() {
+  const items = getRevealItems();
+
+  if (!items.length) return;
+
+  if (revealIndex < items.length) {
+    revealIndex++;
+    applyRevealState();
+    return;
+  }
+
+  if (current < lessonData.slides.length - 1) {
+    showSlide(current + 1);
+  }
+}
+
+function revealPrevStep() {
+  const items = getRevealItems();
+
+  if (!items.length) return;
+
+  if (revealIndex > 1) {
+    revealIndex--;
+    applyRevealState();
+    return;
+  }
+
+  if (current > 0) {
+    showSlide(current - 1);
+
+    const previousItems = getRevealItems();
+    revealIndex = previousItems.length;
+    applyRevealState();
+  }
+}
+
+function setupSlideClick() {
+  const container = document.getElementById("slidesContainer");
+  if (!container) return;
+
+  container.addEventListener("click", function (e) {
+    if (e.target.closest(".reveal-arrow")) return;
+    revealNextStep();
+  });
+}
+
+function toggleFullScreen() {
+  const page = document.documentElement;
+
+  if (!document.fullscreenElement) {
+    if (page.requestFullscreen) {
+      page.requestFullscreen().catch(err => {
+        console.log("Fullscreen error:", err);
+      });
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(err => {
+        console.log("Exit fullscreen error:", err);
+      });
+    }
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", loadLesson);
+} else {
+  loadLesson();
+}
