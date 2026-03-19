@@ -44,15 +44,61 @@ header p {
 
 .slide {
   display: none;
+  position: relative;
   max-width: 1050px;
   margin: auto;
   padding: 30px 18px;
   animation: fadeSlide 0.45s ease;
-  cursor: pointer;
+  min-height: 420px;
 }
 
 .slide.active {
   display: block;
+}
+
+.slide-click-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+}
+
+.slide h2,
+.lead,
+.main-image,
+.info-list,
+.grid {
+  position: relative;
+  z-index: 2;
+}
+
+.reveal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  background: rgba(0, 119, 182, 0.9);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.25);
+}
+
+.reveal-left {
+  left: 10px;
+}
+
+.reveal-right {
+  right: 10px;
+}
+
+.reveal-arrow:hover {
+  background: #023e8a;
 }
 
 @keyframes fadeSlide {
@@ -180,7 +226,6 @@ button:hover {
   font-size: 1rem;
 }
 
-/* reveal animation */
 .reveal-item {
   opacity: 0;
   transform: translateY(16px);
@@ -231,5 +276,19 @@ button:hover {
     font-size: 15px;
     padding: 11px 14px;
     margin: 4px;
+  }
+
+  .reveal-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
+
+  .reveal-left {
+    left: 4px;
+  }
+
+  .reveal-right {
+    right: 4px;
   }
 }
