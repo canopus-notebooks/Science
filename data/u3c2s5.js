@@ -1,36 +1,31 @@
 const lessonData = {
   title: "Pollution, Fossil Fuels, and Energy Conservation",
-  info: "Unit 3 - Concept 2 - Session 5",
+  info: "Junior 4 Science - Unit 3 - Concept 2 - Session 5",
 
   slides: [
 
     // 🔹 Introduction
     {
       title: "Introduction",
-      text: "In this session we will learn about pollution, fossil fuels, and energy conservation.",
+      text: "In this session we will learn about pollution, fossil fuels, harmful effects of burning fossil fuels, and ways to conserve energy.",
       image: "u3c2intro.jpg"
     },
 
     // 🔹 Activity 9
     {
       title: "Activity 9",
-      text: "Main idea: Big cities have many environmental problems.",
+      text: "Main idea: Big cities have many environmental problems because of human activities.",
       cards: [
         {
           image: "u3c2a9.jpg",
-          title: "Causes",
-          text: "Factories produce smoke, cars produce smog, farms use pesticides."
-        },
-        {
-          image: "u3c2a92.jpg",
-          title: "Types of Pollution",
-          text: "Air pollution, water pollution, soil pollution."
-        },
-        {
-          image: "u3c2a93.jpg",
-          title: "Effects",
-          text: "Smog irritates eyes and lungs, particles damage respiratory system."
+          title: "Causes of Pollution",
+          text: "Factories produce smoke, cars produce smog, and farms use pesticides. All these cause pollution."
         }
+      ],
+      bullets: [
+        "Types of pollution: air pollution, water pollution, soil pollution",
+        "Smog causes irritation of eyes and lungs",
+        "Small particles damage the respiratory system"
       ]
     },
 
@@ -42,25 +37,29 @@ const lessonData = {
         {
           image: "u3c2a10.jpg",
           title: "Fossil Fuels",
-          text: "Coal, oil, and natural gas are used in power stations."
+          text: "Coal, oil, and natural gas are fossil fuels used in power stations."
         },
         {
           image: "u3c2a102.jpg",
           title: "Acid Rain",
-          text: "CO2 combines with water to form acid rain."
+          text: "Carbon dioxide combines with water to form acid rain."
         },
         {
           image: "u3c2a103.jpg",
           title: "Global Warming",
-          text: "CO2 traps heat causing increase in Earth's temperature."
+          text: "CO2 traps heat in the atmosphere causing global warming."
         }
+      ],
+      bullets: [
+        "Acid rain results: death of trees, killing fish, changes in soil and water, dissolving rocks",
+        "Global warming results: increase in Earth's temperature and climate change"
       ]
     },
 
     // 🔹 Activity 11
     {
       title: "Activity 11",
-      text: "Main idea: Fossil fuels are limited.",
+      text: "Main idea: Fossil fuels are limited and nonrenewable.",
       cards: [
         {
           image: "u3c2a11.jpg",
@@ -87,32 +86,32 @@ const lessonData = {
       cards: [
         {
           image: "u3c2a12.jpg",
-          title: "Renewable",
-          text: "Solar, wind, water, wood."
+          title: "Renewable Energy",
+          text: "Solar, wind, water, and wood can be replaced."
         },
         {
           image: "u3c2a122.jpg",
-          title: "Nonrenewable",
-          text: "Coal, oil, gasoline, natural gas."
+          title: "Nonrenewable Energy",
+          text: "Coal, oil, gasoline, and natural gas cannot be replaced quickly."
         }
       ]
     },
 
-    // 🔹 Summary
+    // 🔹 Conclusion
     {
       title: "Important Summary",
       image: "u3c2summary.jpg",
       bullets: [
-        "Pollution is caused by human activities",
-        "There are three types of pollution",
-        "Smog affects lungs and eyes",
-        "Fossil fuels include coal, oil, natural gas",
-        "Burning fuels produces CO2",
+        "Pollution is caused by human activities like factories and cars",
+        "There are three types of pollution: air, water, and soil",
+        "Smog causes irritation to eyes and lungs",
+        "Fossil fuels include coal, oil, and natural gas",
+        "Burning fossil fuels produces carbon dioxide (CO2)",
         "CO2 causes acid rain and global warming",
-        "Acid rain damages environment",
-        "Global warming increases temperature",
-        "Fossil fuels are limited",
-        "Use renewable energy"
+        "Acid rain damages trees, fish, soil, and rocks",
+        "Global warming increases Earth's temperature",
+        "Fossil fuels are nonrenewable and limited",
+        "We should conserve energy and use renewable energy like solar and wind"
       ]
     }
 
