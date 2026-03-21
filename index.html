@@ -2,154 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Junior 4 Science | Omar Fathy</title>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(180deg, #caf0f8, #e0f7ff);
-      color: #1f2937;
       text-align: center;
     }
 
+    /* 🔥 MENU BUTTON */
     .menu-btn {
       position: fixed;
       top: 16px;
       left: 16px;
       z-index: 1200;
-      background: rgba(0, 119, 182, 0.96);
+      background: #0077b6;
       color: white;
       border: none;
       border-radius: 10px;
       padding: 10px 14px;
       font-size: 24px;
       cursor: pointer;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
     }
 
-    .menu-btn:hover {
-      background: #023e8a;
-    }
-
-    .sidebar-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-      z-index: 1050;
-    }
-
-    .sidebar-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
+    /* 🔥 SIDEBAR */
     .sidebar {
       position: fixed;
+      left: -320px;
       top: 0;
-      left: -340px;
       width: 300px;
-      max-width: 85vw;
-      height: 100vh;
-      overflow-y: auto;
-      background: linear-gradient(180deg, #0077b6, #023e8a);
+      height: 100%;
+      background: #0077b6;
       color: white;
-      padding: 22px 18px 28px;
-      box-shadow: 4px 0 14px rgba(0, 0, 0, 0.18);
-      transition: left 0.28s ease;
+      padding: 20px;
+      transition: 0.3s;
       z-index: 1100;
+      overflow-y: auto;
       text-align: left;
     }
 
-    .sidebar.active {
-      left: 0;
-    }
-
-    .sidebar-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .sidebar h2 {
-      margin: 0;
-      font-size: 1.35rem;
-    }
-
-    .close-btn {
-      background: rgba(255, 255, 255, 0.12);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .close-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .sidebar-intro {
-      margin: 0 0 18px;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #e0f2fe;
-    }
-
-    .tree-section {
-      margin-top: 18px;
-    }
-
-    .tree-item {
-      margin-bottom: 10px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.08);
-    }
+    .sidebar.active { left: 0; }
 
     .tree-toggle {
       width: 100%;
-      background: transparent;
-      color: white;
+      background: none;
       border: none;
+      color: white;
       text-align: left;
-      padding: 16px 14px;
-      font-size: 1rem;
+      padding: 12px;
       font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       cursor: pointer;
     }
 
-    .tree-toggle:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .tree-arrow {
-      font-size: 0.95rem;
-      transition: transform 0.25s ease;
-    }
-
-    .tree-item.open > .tree-toggle .tree-arrow {
-      transform: rotate(90deg);
-    }
-
-    .tree-content {
-      display: none;
-      padding: 0 10px 12px;
-    }
+    .tree-content { display: none; }
 
     .tree-item.open > .tree-content {
       display: block;
@@ -157,377 +67,153 @@
 
     .tree-link {
       display: block;
-      width: 100%;
+      padding: 8px 12px;
+      margin: 5px 0;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
       text-decoration: none;
       color: white;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 10px 12px;
-      margin: 6px 0;
-      font-size: 0.94rem;
-      line-height: 1.5;
-      transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    .tree-link:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateX(3px);
-    }
-
-    .tree-link.active {
-      background: white;
-      color: #0b3d91;
-      font-weight: bold;
-    }
-
-    .nested-box {
-      margin: 8px 0 0 8px;
-      padding-left: 8px;
-      border-left: 2px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .sidebar-note {
-      font-size: 0.87rem;
-      color: #dbeafe;
-      line-height: 1.7;
-      margin-top: 14px;
-    }
-
+    /* 🔥 HERO */
     .hero {
-      position: relative;
-      min-height: 460px;
+      min-height: 450px;
       background:
-        linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.28)),
-        url("cover.jpg") center center / cover no-repeat;
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)),
+        url("cover.jpg") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 100px 24px 70px;
+      padding: 100px 20px;
     }
 
     .hero-content {
-      background: rgba(0, 0, 0, 0.28);
-      backdrop-filter: blur(3px);
-      padding: 38px 30px;
-      border-radius: 22px;
+      background: rgba(0,0,0,0.3);
+      padding: 40px;
+      border-radius: 20px;
       color: white;
-      max-width: 860px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+      max-width: 700px;
     }
 
     .hero h1 {
       margin: 0;
-      font-size: 2.7rem;
-      line-height: 1.2;
+      font-size: 2.5rem;
     }
 
+    /* 🔥 التعديل هنا */
     .hero h2 {
-      margin: 18px 0 0;
-      font-size: 1.15rem;
-      font-weight: normal;
+      margin: 25px 0 0;
+      font-size: 1.1rem;
     }
 
     .hero p {
-      margin: 18px auto 0;
-      font-size: 1.04rem;
-      line-height: 1.9;
-      max-width: 700px;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 36px 20px 50px;
-    }
-
-    .section-title {
-      color: #0b3d91;
-      font-size: 1.9rem;
-      margin-bottom: 12px;
-    }
-
-    .section-text {
-      max-width: 850px;
-      margin: 0 auto 28px;
+      margin: 28px auto 0;
       line-height: 1.8;
-      font-size: 1.03rem;
+      font-size: 1rem;
+    }
+
+    /* 🔥 CONTENT */
+    .container {
+      padding: 40px 20px;
     }
 
     .grid {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
-      margin-top: 30px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .card {
       background: white;
-      width: 320px;
-      border-radius: 18px;
-      padding: 24px 20px;
+      padding: 20px;
+      width: 300px;
+      border-radius: 16px;
       text-decoration: none;
-      color: #1f2937;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: black;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
-    }
-
-    .badge {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #dbeafe;
-      color: #0b3d91;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      color: #0b3d91;
-      font-size: 1.25rem;
-    }
-
-    .card p {
-      margin: 0;
-      line-height: 1.7;
-      font-size: 0.98rem;
-    }
-
-    .footer-note {
-      margin-top: 35px;
-      color: #4b5563;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 700px) {
-      .menu-btn {
-        top: 12px;
-        left: 12px;
-        font-size: 22px;
-        padding: 9px 12px;
-      }
-
-      .hero {
-        min-height: 340px;
-        padding: 76px 16px 40px;
-        background-position: center center;
-      }
-
-      .hero-content {
-        padding: 24px 18px;
-      }
-
-      .hero h1 {
-        font-size: 1.9rem;
-      }
-
-      .hero h2 {
-        font-size: 1rem;
-      }
-
-      .hero p {
-        font-size: 0.98rem;
-      }
-
-      .section-title {
-        font-size: 1.5rem;
-      }
-
-      .card {
-        width: 100%;
-        max-width: 340px;
-      }
-
-      .sidebar {
-        width: 86vw;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+<button class="menu-btn" onclick="toggleSidebar()">☰</button>
 
-  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<div class="sidebar" id="sidebar">
 
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-top">
-      <h2>Quick Navigation</h2>
-      <button class="close-btn" onclick="closeSidebar()">✕</button>
-    </div>
+  <h2>Navigation</h2>
 
-    <p class="sidebar-intro">
-      Choose the <strong>Unit</strong>, then the <strong>Concept</strong>, then the <strong>Session</strong>.
-    </p>
-
-    <div class="tree-section">
+  <!-- Unit 3 -->
+  <div class="tree-item">
+    <button class="tree-toggle" onclick="toggleTree(this)">Unit 3 ➤</button>
+    <div class="tree-content">
 
       <div class="tree-item">
-        <button class="tree-toggle" onclick="toggleTree(this)">
-          <span>Unit 3</span>
-          <span class="tree-arrow">➤</span>
-        </button>
-
+        <button class="tree-toggle" onclick="toggleTree(this)">Concept 1 ➤</button>
         <div class="tree-content">
-
-          <div class="tree-item nested-box">
-            <button class="tree-toggle" onclick="toggleTree(this)">
-              <span>Concept 1</span>
-              <span class="tree-arrow">➤</span>
-            </button>
-            <div class="tree-content">
-              <a class="tree-link" href="u3c1.html">Open Concept 1</a>
-              <a class="tree-link" href="u3c1s1.html">Session 1</a>
-              <a class="tree-link" href="u3c1s2.html">Session 2</a>
-              <a class="tree-link" href="u3c1s3.html">Session 3</a>
-            </div>
-          </div>
-
-          <div class="tree-item nested-box">
-            <button class="tree-toggle" onclick="toggleTree(this)">
-              <span>Concept 2</span>
-              <span class="tree-arrow">➤</span>
-            </button>
-            <div class="tree-content">
-              <a class="tree-link" href="u3c2.html">Open Concept 2</a>
-              <a class="tree-link" href="u3c2s3.html">Session 3</a>
-              <a class="tree-link" href="u3c2s4.html">Session 4</a>
-              <a class="tree-link" href="u3c2s5.html">Session 5</a>
-            </div>
-          </div>
-
-          <div class="tree-item nested-box">
-            <button class="tree-toggle" onclick="toggleTree(this)">
-              <span>Concept 3</span>
-              <span class="tree-arrow">➤</span>
-            </button>
-            <div class="tree-content">
-              <a class="tree-link" href="u3c3.html">Open Concept 3</a>
-            </div>
-          </div>
-
+          <a class="tree-link" href="u3c1s1.html">Session 1</a>
+          <a class="tree-link" href="u3c1s2.html">Session 2</a>
         </div>
       </div>
 
       <div class="tree-item">
-        <button class="tree-toggle" onclick="toggleTree(this)">
-          <span>Unit 4</span>
-          <span class="tree-arrow">➤</span>
-        </button>
-
+        <button class="tree-toggle" onclick="toggleTree(this)">Concept 2 ➤</button>
         <div class="tree-content">
-
-          <div class="tree-item nested-box">
-            <button class="tree-toggle" onclick="toggleTree(this)">
-              <span>Concept 1</span>
-              <span class="tree-arrow">➤</span>
-            </button>
-            <div class="tree-content">
-              <a class="tree-link" href="u4c1.html">Open Concept 1</a>
-            </div>
-          </div>
-
-          <div class="tree-item nested-box">
-            <button class="tree-toggle" onclick="toggleTree(this)">
-              <span>Concept 2</span>
-              <span class="tree-arrow">➤</span>
-            </button>
-            <div class="tree-content">
-              <a class="tree-link" href="u4c2.html">Open Concept 2</a>
-            </div>
-          </div>
-
+          <a class="tree-link" href="u3c2s4.html">Session 4</a>
+          <a class="tree-link" href="u3c2s5.html">Session 5</a>
         </div>
       </div>
 
     </div>
-
-    <p class="sidebar-note">
-      More sessions will be added as the platform grows.
-    </p>
-  </aside>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Junior 4 Science</h1>
-      <h2>Prepared by Omar Fathy</h2>
-      <p>
-        Welcome to the science sessions website. Choose a unit to open its concepts and available sessions.
-      </p>
-    </div>
-  </section>
-
-  <div class="container">
-    <h2 class="section-title">Choose a Unit</h2>
-    <p class="section-text">
-      This website is organized as sessions to match the video explanation plan.
-    </p>
-
-    <div class="grid">
-      <a class="card" href="unit3.html">
-        <div class="badge">Unit 3</div>
-        <h3>Unit 3 Sessions</h3>
-        <p>Open Unit 3 and study Concept 1, Concept 2, and Concept 3.</p>
-      </a>
-
-      <a class="card" href="unit4.html">
-        <div class="badge">Unit 4</div>
-        <h3>Unit 4 Sessions</h3>
-        <p>Open Unit 4 and study Concept 1 and Concept 2.</p>
-      </a>
-    </div>
-
-    <div class="footer-note">More sessions will be added soon.</div>
   </div>
 
-  <script>
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("active");
-      document.getElementById("sidebarOverlay").classList.toggle("active");
-    }
+  <!-- Unit 4 -->
+  <div class="tree-item">
+    <button class="tree-toggle" onclick="toggleTree(this)">Unit 4 ➤</button>
+    <div class="tree-content">
+      <a class="tree-link" href="#">Concept 1</a>
+    </div>
+  </div>
 
-    function closeSidebar() {
-      document.getElementById("sidebar").classList.remove("active");
-      document.getElementById("sidebarOverlay").classList.remove("active");
-    }
+</div>
 
-    function toggleTree(button) {
-      button.parentElement.classList.toggle("open");
-    }
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Junior 4 Science</h1>
+    <h2>Prepared by Omar Fathy</h2>
+    <p>
+      Welcome to the science sessions website. Choose a unit to open its concepts and available sessions.
+    </p>
+  </div>
+</section>
 
-    document.querySelectorAll(".tree-link").forEach(link => {
-      link.addEventListener("click", () => {
-        closeSidebar();
-      });
-    });
+<!-- CONTENT -->
+<div class="container">
+  <div class="grid">
+    <a class="card" href="unit3.html">
+      <h3>Unit 3</h3>
+      <p>Concepts and sessions</p>
+    </a>
 
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        closeSidebar();
-      }
-    });
+    <a class="card" href="unit4.html">
+      <h3>Unit 4</h3>
+      <p>Concepts and sessions</p>
+    </a>
+  </div>
+</div>
 
-    const currentPage = window.location.pathname.split("/").pop();
+<script>
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("active");
+}
 
-    document.querySelectorAll(".tree-link").forEach(link => {
-      if (link.getAttribute("href") === currentPage) {
-        link.classList.add("active");
-
-        let parent = link.closest(".tree-item");
-        while (parent) {
-          parent.classList.add("open");
-          parent = parent.parentElement.closest(".tree-item");
-        }
-      }
-    });
-  </script>
+function toggleTree(btn) {
+  btn.parentElement.classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
