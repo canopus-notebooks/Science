@@ -19,12 +19,17 @@
 
   <div id="slidesContainer"></div>
 
-  <div class="nav">
-    <button type="button" onclick="prevSlide()">⬅ Previous Slide</button>
-    <button type="button" onclick="nextSlide()">Next Slide ➡</button>
-    <button type="button" onclick="toggleFullScreen()">⛶ Full Screen</button>
-    <div id="counter"></div>
+  <div class="toolbar">
+    <button type="button" onclick="prevSlide()">⬅</button>
+    <button type="button" onclick="playSlides()">▶</button>
+    <button type="button" onclick="pauseSlides()">⏸</button>
+    <button type="button" onclick="nextSlide()">➡</button>
+    <button type="button" onclick="restartLesson()">🔄</button>
+    <button type="button" onclick="goHome()">🏠</button>
+    <button type="button" onclick="toggleFullScreen()">⛶</button>
   </div>
+
+  <div id="counter"></div>
 
   <script>
     const version = Date.now();
