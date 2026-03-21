@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unit 3 - Concept 2</title>
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -13,12 +15,15 @@
       color: #1f2937;
       text-align: center;
     }
+
     header {
       background: linear-gradient(90deg, #0077b6, #0096c7);
       color: white;
       padding: 30px 20px;
     }
+
     .top-bar { margin: 18px 0 0; }
+
     .btn {
       display: inline-block;
       background: #0077b6;
@@ -28,12 +33,15 @@
       border-radius: 10px;
       margin: 4px;
     }
+
     .btn:hover { background: #023e8a; }
+
     .container {
       max-width: 1100px;
       margin: auto;
       padding: 35px 20px 50px;
     }
+
     .grid {
       display: flex;
       flex-wrap: wrap;
@@ -41,6 +49,7 @@
       gap: 24px;
       margin-top: 30px;
     }
+
     .card {
       background: white;
       width: 320px;
@@ -48,11 +57,23 @@
       padding: 24px 20px;
       color: #1f2937;
       box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-      text-decoration: none;
-      transition: transform 0.2s ease;
+      transition: 0.3s;
     }
-    a.card:hover { transform: translateY(-4px); }
-    .coming { opacity: 0.78; cursor: not-allowed; }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+    }
+
+    .card.active {
+      cursor: pointer;
+    }
+
+    .coming {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
     .badge {
       display: inline-block;
       margin-bottom: 12px;
@@ -63,8 +84,32 @@
       font-weight: bold;
       font-size: 0.9rem;
     }
-    .card h3 { color: #0b3d91; margin: 0 0 10px; }
-    .card p { margin: 0; line-height: 1.7; }
+
+    .card h3 {
+      color: #0b3d91;
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .open-btn {
+      margin-top: 15px;
+      display: inline-block;
+      background: #0077b6;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .open-btn:hover {
+      background: #023e8a;
+    }
+
   </style>
 </head>
 <body>
@@ -72,6 +117,7 @@
   <header>
     <h1>Unit 3 - Concept 2</h1>
     <p>Available Sessions</p>
+
     <div class="top-bar">
       <a class="btn" href="unit3.html">Back to Unit 3</a>
       <a class="btn" href="index.html">Home</a>
@@ -80,23 +126,31 @@
 
   <div class="container">
     <div class="grid">
-      <div class="card coming">
-        <div class="badge">Session 3</div>
-        <h3 style="font-size:30px;color:#ef4444;text-align:center;margin-top:18px;">COMING SOON</h3>
-        <p>Lesson 1 + Part of Lesson 2</p>
+
+      <!-- Session 4 -->
+      <div class="card active">
+        <div class="badge">Session 4</div>
+        <h3>Energy Resources</h3>
+        <p>Energy and Electricity</p>
+        <a href="u3c2s4.html" class="open-btn">Open Session</a>
       </div>
 
-      <a class="card" href="u3c2s4.html">
-        <div class="badge">Session 4</div>
-        <h3>Energy Resources and Electricity</h3>
-        <p>Rest of Lesson 2 + Lesson 3</p>
-      </a>
-
-      <a class="card" href="u3c2s5.html">
+      <!-- Session 5 -->
+      <div class="card active">
         <div class="badge">Session 5</div>
-        <h3>Pollution, Fossil Fuels, and Energy Conservation</h3>
-        <p>Lesson 4 + Lesson 5</p>
-      </a>
+        <h3>Pollution and Fossil Fuels</h3>
+        <p>Activities + Summary</p>
+        <a href="u3c2s5.html" class="open-btn">Open Session</a>
+      </div>
+
+      <!-- Session 3 (اللي عملناه دلوقتي) -->
+      <div class="card active">
+        <div class="badge">Session 3</div>
+        <h3>Fuels and Energy Sources</h3>
+        <p>Activities 1 → 4 + Summary</p>
+        <a href="u3c2s3.html" class="open-btn">Open Session</a>
+      </div>
+
     </div>
   </div>
 
