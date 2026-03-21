@@ -109,6 +109,45 @@ header p {
   font-size: 1rem;
 }
 
+.sections-wrap {
+  max-width: 980px;
+  margin: 24px auto 0;
+  display: grid;
+  gap: 18px;
+}
+
+.section-box {
+  background: #ffffff;
+  border: 2px solid #dbeafe;
+  border-radius: 16px;
+  padding: 18px 20px;
+  text-align: left;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.section-title {
+  margin: 0 0 10px;
+  color: #0b3d91;
+  font-size: 1.2rem;
+}
+
+.section-text {
+  margin: 0 0 10px;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.section-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.section-list li {
+  margin-bottom: 10px;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -255,6 +294,22 @@ button:hover {
   background: #dbeafe;
 }
 
+.highlight {
+  font-weight: 700;
+  color: #9f1239;
+  background: #ffe4e6;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+.keyword {
+  font-weight: 700;
+  color: #0b3d91;
+  background: #dbeafe;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
 :fullscreen,
 :fullscreen body {
   background: linear-gradient(180deg, #caf0f8, #e0f7ff);
@@ -288,6 +343,10 @@ button:hover {
 
   .info-list {
     padding: 18px;
+  }
+
+  .section-box {
+    padding: 16px 16px;
   }
 
   .card {
