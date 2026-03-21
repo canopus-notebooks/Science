@@ -9,8 +9,8 @@ function loadLesson() {
     return;
   }
 
-  document.getElementById("lessonTitle").textContent = lessonData.title || "";
-  document.getElementById("lessonInfo").textContent = lessonData.info || "";
+  document.getElementById("lessonTitle").innerHTML = lessonData.title || "";
+  document.getElementById("lessonInfo").innerHTML = lessonData.info || "";
 
   const container = document.getElementById("slidesContainer");
   container.innerHTML = "";
@@ -50,10 +50,10 @@ function loadLesson() {
     }
 
     if (slide.image) {
-      html += `<img src="${slide.image}" class="main-image reveal-item" alt="${slide.title || ""}">`;
+      html += `<img src="${slide.image}" class="main-image reveal-item" alt="${stripHtml(slide.title || "")}">`;
     }
 
-    if (slide.bullets) {
+    if (slide.bullets && slide.bullets.length) {
       html += `<ul class="info-list">`;
       slide.bullets.forEach(item => {
         html += `<li class="reveal-item">${item}</li>`;
@@ -61,14 +61,39 @@ function loadLesson() {
       html += `</ul>`;
     }
 
-    if (slide.cards) {
+    if (slide.sections && slide.sections.length) {
+      html += `<div class="sections-wrap">`;
+      slide.sections.forEach(section => {
+        html += `
+          <div class="section-box reveal-item">
+            <h3 class="section-title">${section.heading || ""}</h3>
+        `;
+
+        if (section.text) {
+          html += `<p class="section-text">${section.text}</p>`;
+        }
+
+        if (section.bullets && section.bullets.length) {
+          html += `<ul class="section-list">`;
+          section.bullets.forEach(item => {
+            html += `<li>${item}</li>`;
+          });
+          html += `</ul>`;
+        }
+
+        html += `</div>`;
+      });
+      html += `</div>`;
+    }
+
+    if (slide.cards && slide.cards.length) {
       html += `<div class="grid">`;
       slide.cards.forEach(card => {
         html += `
           <div class="card reveal-item">
-            <img src="${card.image}" alt="${card.title}">
-            <h3>${card.title}</h3>
-            <p>${card.text}</p>
+            <img src="${card.image}" alt="${stripHtml(card.title || "")}">
+            <h3>${card.title || ""}</h3>
+            <p>${card.text || ""}</p>
           </div>
         `;
       });
@@ -84,6 +109,12 @@ function loadLesson() {
 
   showSlide(0);
   setupSlideClick();
+}
+
+function stripHtml(value) {
+  const temp = document.createElement("div");
+  temp.innerHTML = value;
+  return temp.textContent || temp.innerText || "";
 }
 
 function getSlides() {
