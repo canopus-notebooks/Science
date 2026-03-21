@@ -3,7 +3,6 @@ const lessonData = {
   info: "Junior 4 Science - Unit 3 - Concept 2 - Session 5",
 
   slides: [
-
     {
       title: "Activity 9",
       text: "Big cities have many <span class='highlight'>environmental problems</span> because of <span class='highlight'>human activities</span>.",
@@ -26,16 +25,30 @@ const lessonData = {
         }
       ],
 
-      bullets: [
-        "Burning of fuels produces <span class='highlight'>smog</span> that pollutes the air",
-        "<span class='highlight'>Pesticides</span> mix with water and pollute soil and rivers",
-        "<span class='highlight'>Chemicals</span> from factories pollute air, water, and soil",
-
-        "Types of pollution:",
-        "<span class='keyword'>Air</span> – <span class='keyword'>Water</span> – <span class='keyword'>Soil</span>",
-
-        "Smog causes irritation of <span class='highlight'>eyes</span> and <span class='highlight'>lungs</span>",
-        "Small particles damage the <span class='highlight'>respiratory system</span>"
+      sections: [
+        {
+          heading: "Causes of Pollution",
+          bullets: [
+            "Burning of fuels produces <span class='highlight'>smog</span> that pollutes the air",
+            "<span class='highlight'>Pesticides</span> mix with water and pollute soil and rivers",
+            "<span class='highlight'>Chemicals</span> from factories pollute air, water, and soil"
+          ]
+        },
+        {
+          heading: "Types of Pollution",
+          bullets: [
+            "<span class='keyword'>Air pollution</span>",
+            "<span class='keyword'>Water pollution</span>",
+            "<span class='keyword'>Soil pollution</span>"
+          ]
+        },
+        {
+          heading: "Harms",
+          bullets: [
+            "Smog causes irritation of <span class='highlight'>eyes</span> and <span class='highlight'>lungs</span>",
+            "Small particles damage the <span class='highlight'>respiratory system</span>"
+          ]
+        }
       ]
     },
 
@@ -62,18 +75,27 @@ const lessonData = {
       ],
 
       bullets: [
-        "Burning fossil fuels produces <span class='highlight'>carbon dioxide (CO2)</span>",
+        "Burning fossil fuels produces <span class='highlight'>carbon dioxide (CO2)</span>"
+      ],
 
-        "<span class='keyword'>Acid rain:</span>",
-        "<span class='highlight'>CO2</span> combines with water to form acid rain",
-        "Causes <span class='highlight'>death of trees</span> and <span class='highlight'>fish</span>",
-        "Changes the <span class='highlight'>chemical nature</span> of soil and lakes",
-        "Dissolves <span class='highlight'>rocks</span>",
-
-        "<span class='keyword'>Global warming:</span>",
-        "<span class='highlight'>CO2</span> forms a layer in the atmosphere",
-        "This layer <span class='highlight'>traps heat</span>",
-        "Causes increase in <span class='highlight'>Earth's temperature</span>"
+      sections: [
+        {
+          heading: "Acid Rain",
+          bullets: [
+            "<span class='highlight'>CO2</span> combines with water to form <span class='highlight'>acid rain</span>",
+            "Causes <span class='highlight'>death of trees</span> and <span class='highlight'>fish</span>",
+            "Changes the <span class='highlight'>chemical nature</span> of soil and lakes",
+            "Dissolves <span class='highlight'>rocks</span>"
+          ]
+        },
+        {
+          heading: "Global Warming",
+          bullets: [
+            "<span class='highlight'>CO2</span> forms a layer in the atmosphere",
+            "This layer <span class='highlight'>traps heat</span>",
+            "Causes increase in <span class='highlight'>Earth's temperature</span>"
+          ]
+        }
       ]
     },
 
@@ -99,14 +121,22 @@ const lessonData = {
         }
       ],
 
-      bullets: [
-        "Fossil fuels are <span class='highlight'>limited</span>",
-        "Fossil fuels are <span class='highlight'>nonrenewable</span>",
-
-        "<span class='keyword'>Ways to conserve energy:</span>",
-        "Using <span class='highlight'>bicycle</span> instead of cars",
-        "Turning off <span class='highlight'>lights</span>",
-        "Using <span class='highlight'>renewable energy</span>"
+      sections: [
+        {
+          heading: "Important Facts",
+          bullets: [
+            "Fossil fuels are <span class='highlight'>limited</span>",
+            "Fossil fuels are <span class='highlight'>nonrenewable</span>"
+          ]
+        },
+        {
+          heading: "Ways to Conserve Energy",
+          bullets: [
+            "Using <span class='highlight'>bicycle</span> instead of cars",
+            "Turning off <span class='highlight'>lights</span>",
+            "Using <span class='highlight'>renewable energy</span>"
+          ]
+        }
       ]
     },
 
@@ -127,9 +157,24 @@ const lessonData = {
         }
       ],
 
-      bullets: [
-        "<span class='keyword'>Renewable:</span> Solar – Water – Wind – Wood",
-        "<span class='keyword'>Nonrenewable:</span> Coal – Oil – Gas"
+      sections: [
+        {
+          heading: "Renewable Energy Resources",
+          bullets: [
+            "Solar",
+            "Water",
+            "Wind",
+            "Wood"
+          ]
+        },
+        {
+          heading: "Nonrenewable Energy Resources",
+          bullets: [
+            "Coal",
+            "Oil",
+            "Gas"
+          ]
+        }
       ]
     },
 
@@ -148,6 +193,5 @@ const lessonData = {
         "We must use <span class='highlight'>renewable energy</span>"
       ]
     }
-
   ]
 };
