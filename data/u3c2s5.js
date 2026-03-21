@@ -3,164 +3,126 @@ const lessonData = {
   info: "Junior 4 Science - Unit 3 - Concept 2 - Session 5",
 
   slides: [
-
-    // 🔹 Activity 9
     {
       title: "Activity 9",
-      text: "big cities have many environmental problems because of human activities",
-
-      bullets: [
-        "Types of pollution:",
-        "1. air pollution",
-        "2. water pollution",
-        "3. soil pollution",
-
-        "burning of fuels produce smog that pollute the air (air pollution)",
-        "pesticides from farms mix with water and pollute soil and river (soil and water pollution)",
-        "chemical from factories pollute air, water, soil (soil and water and air pollution)",
-
-        "harms:",
-        "smog from cars and burning fuels causes irritation of human’s eyes and lungs",
-        "small particles of smog damage the respiratory system of human"
-      ],
-
+      text: "Big cities have many environmental problems because of human activities.",
       cards: [
         {
           image: "u3c2a9.jpg",
-          title: "Pollution",
-          text: "Factories, cars, and farms cause pollution"
+          title: "Factories",
+          text: "Factories produce smoke."
+        },
+        {
+          image: "u3c2a9.jpg",
+          title: "Cars",
+          text: "Cars produce smog."
+        },
+        {
+          image: "u3c2a9.jpg",
+          title: "Farms",
+          text: "Farms use pesticides."
         }
+      ],
+      bullets: [
+        "All these cause pollution",
+        "Types of pollution: air pollution, water pollution, and soil pollution",
+        "Smog causes irritation of eyes and lungs",
+        "Small particles damage the respiratory system"
       ]
     },
 
-    // 🔹 Activity 10
     {
       title: "Activity 10",
-      text: "fossil fuels are burned to product electricity and it transfers through wires",
-
-      bullets: [
-        "Ex of fossil fuels:",
-        "1. coal",
-        "2. natural gas",
-        "3. oil",
-        "4. gasoline",
-
-        "when we burning fossil fuels carbon dioxide is formed (CO2)",
-
-        "CO2 acid rain:",
-        "CO2 combines with water in the air and form (acid rain)",
-
-        "causes:",
-        "1. death of trees and fish",
-        "2. change in chemical nature of soil",
-        "3. change in chemical nature of lakes",
-        "4. dissolving rocks in some building",
-
-        "global warming:",
-        "CO2 form a layer in the atmosphere",
-        "this layer traps heat and this cause increase in earth temperature"
-      ],
-
+      text: "Burning fossil fuels produces energy but causes pollution.",
       cards: [
         {
           image: "u3c2a10.jpg",
           title: "Fossil Fuels",
-          text: "coal, oil, natural gas"
+          text: "Examples: coal, natural gas, oil, and gasoline."
         },
         {
           image: "u3c2a102.jpg",
           title: "Acid Rain",
-          text: "CO2 + water → acid rain"
+          text: "CO2 combines with water in the air and forms acid rain."
         },
         {
           image: "u3c2a103.jpg",
           title: "Global Warming",
-          text: "CO2 traps heat"
+          text: "CO2 forms a layer in the atmosphere and traps heat."
         }
+      ],
+      bullets: [
+        "When we burn fossil fuels, carbon dioxide (CO2) is formed",
+        "Acid rain causes death of trees and fish",
+        "Acid rain changes the chemical nature of soil and lakes",
+        "Acid rain dissolves rocks in some buildings",
+        "Global warming causes increase in Earth's temperature"
       ]
     },
 
-    // 🔹 Activity 11
     {
       title: "Activity 11",
-      text: "we should conserve fossil fuels because it takes millions of years to formed by:",
-
-      bullets: [
-        "1. using bicycle instead cars",
-        "2. turning off lights when not needed",
-        "3. using renewable energy like solar and wind"
-      ],
-
+      text: "We should conserve fossil fuels because they take millions of years to form.",
       cards: [
         {
           image: "u3c2a11.jpg",
-          title: "Save Fuel",
-          text: "Use less fossil fuels"
+          title: "Use Bicycle",
+          text: "Use bicycles instead of cars."
         },
         {
           image: "u3c2a112.jpg",
-          title: "Save Electricity",
-          text: "Turn off lights"
+          title: "Turn Off Lights",
+          text: "Turn off lights when not needed."
         },
         {
           image: "u3c2a113.jpg",
           title: "Renewable Energy",
-          text: "Solar and wind energy"
+          text: "Use renewable energy like solar and wind."
         }
+      ],
+      bullets: [
+        "Fossil fuels are limited",
+        "Fossil fuels are nonrenewable",
+        "So, we must conserve them"
       ]
     },
 
-    // 🔹 Activity 12
     {
       title: "Activity 12",
-
-      bullets: [
-        "renewable energy resource:",
-        "1. solar",
-        "2. water",
-        "3. charcoal",
-        "4. wind",
-        "5. wood",
-
-        "non renewable energy resource:",
-        "1. coal",
-        "2. gasoline",
-        "3. oil",
-        "4. natural gas"
-      ],
-
+      text: "There are renewable and nonrenewable energy resources.",
       cards: [
         {
           image: "u3c2a12.jpg",
           title: "Renewable Energy",
-          text: "can be replaced"
+          text: "Solar, water, charcoal, wind, and wood."
         },
         {
           image: "u3c2a122.jpg",
           title: "Nonrenewable Energy",
-          text: "cannot be replaced quickly"
+          text: "Coal, gasoline, oil, and natural gas."
         }
+      ],
+      bullets: [
+        "Renewable energy resources can be replaced",
+        "Nonrenewable energy resources cannot be replaced quickly"
       ]
     },
 
-    // 🔹 Summary
     {
-      title: "Summary in 10 Points",
+      title: "Summary",
       image: "u3c2summary.jpg",
-
       bullets: [
-        "Pollution is caused by burning fuels, chemicals, and pesticides.",
-        "Air pollution is caused by smog from cars and factories.",
-        "Water and soil pollution are caused by chemicals and pesticides.",
-        "Smog irritates the eyes and lungs and damages the respiratory system.",
-        "Fossil fuels include coal, oil, and natural gas.",
-        "Fossil fuels are nonrenewable and limited resources.",
-        "Burning fossil fuels produces carbon dioxide.",
-        "Carbon dioxide causes acid rain and global warming.",
-        "Acid rain harms trees, fish, soil, and buildings.",
-        "Pollution can be reduced by saving energy and using renewable energy."
+        "Pollution is caused by burning fuels, chemicals, and pesticides",
+        "Air pollution is caused by smog from cars and factories",
+        "Water and soil pollution are caused by chemicals and pesticides",
+        "Smog irritates the eyes and lungs and damages the respiratory system",
+        "Fossil fuels include coal, oil, and natural gas",
+        "Fossil fuels are nonrenewable and limited resources",
+        "Burning fossil fuels produces carbon dioxide",
+        "Carbon dioxide causes acid rain and global warming",
+        "Acid rain harms trees, fish, soil, and buildings",
+        "Pollution can be reduced by saving energy and using renewable energy"
       ]
     }
-
   ]
 };
