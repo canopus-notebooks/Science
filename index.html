@@ -22,7 +22,7 @@
       top: 16px;
       left: 16px;
       z-index: 1200;
-      background: rgba(0, 119, 182, 0.95);
+      background: rgba(0, 119, 182, 0.96);
       color: white;
       border: none;
       border-radius: 10px;
@@ -54,7 +54,7 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -320px;
+      left: -340px;
       width: 300px;
       max-width: 85vw;
       height: 100vh;
@@ -107,33 +107,55 @@
       color: #e0f2fe;
     }
 
-    .sidebar-section {
+    .tree-section {
       margin-top: 18px;
     }
 
-    .sidebar-section h3 {
-      margin: 0 0 10px;
-      font-size: 1rem;
-      color: #ffffff;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-      padding-bottom: 8px;
-    }
-
-    .sidebar-group {
+    .tree-item {
+      margin-bottom: 10px;
+      border-radius: 12px;
+      overflow: hidden;
       background: rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 12px;
-      margin-bottom: 12px;
     }
 
-    .sidebar-group-title {
+    .tree-toggle {
+      width: 100%;
+      background: transparent;
+      color: white;
+      border: none;
+      text-align: left;
+      padding: 16px 14px;
+      font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 8px;
-      color: #ffffff;
-      font-size: 0.98rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
     }
 
-    .sidebar-link {
+    .tree-toggle:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .tree-arrow {
+      font-size: 0.95rem;
+      transition: transform 0.25s ease;
+    }
+
+    .tree-item.open > .tree-toggle .tree-arrow {
+      transform: rotate(90deg);
+    }
+
+    .tree-content {
+      display: none;
+      padding: 0 10px 12px;
+    }
+
+    .tree-item.open > .tree-content {
+      display: block;
+    }
+
+    .tree-link {
       display: block;
       width: 100%;
       text-decoration: none;
@@ -147,16 +169,28 @@
       transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    .sidebar-link:hover {
+    .tree-link:hover {
       background: rgba(255, 255, 255, 0.2);
       transform: translateX(3px);
+    }
+
+    .tree-link.active {
+      background: white;
+      color: #0b3d91;
+      font-weight: bold;
+    }
+
+    .nested-box {
+      margin: 8px 0 0 8px;
+      padding-left: 8px;
+      border-left: 2px solid rgba(255, 255, 255, 0.18);
     }
 
     .sidebar-note {
       font-size: 0.87rem;
       color: #dbeafe;
       line-height: 1.7;
-      margin-top: 10px;
+      margin-top: 14px;
     }
 
     .hero {
@@ -290,27 +324,6 @@
       font-size: 0.98rem;
     }
 
-    .quick-box {
-      margin-top: 42px;
-      background: white;
-      border-radius: 22px;
-      padding: 26px 20px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-    }
-
-    .quick-title {
-      margin: 0 0 10px;
-      color: #0b3d91;
-      font-size: 1.5rem;
-    }
-
-    .quick-text {
-      max-width: 760px;
-      margin: 0 auto;
-      line-height: 1.8;
-      font-size: 1rem;
-    }
-
     .footer-note {
       margin-top: 35px;
       color: #4b5563;
@@ -375,46 +388,89 @@
     </div>
 
     <p class="sidebar-intro">
-      Choose the <strong>Unit</strong>, then the <strong>Concept</strong>, then open the <strong>Session</strong> directly.
+      Choose the <strong>Unit</strong>, then the <strong>Concept</strong>, then the <strong>Session</strong>.
     </p>
 
-    <div class="sidebar-section">
-      <h3>Unit 3</h3>
+    <div class="tree-section">
 
-      <div class="sidebar-group">
-        <div class="sidebar-group-title">Concept 1</div>
-        <a class="sidebar-link" href="u3c1.html">Open Concept 1</a>
-        <a class="sidebar-link" href="u3c1s1.html">Session 1</a>
-        <a class="sidebar-link" href="u3c1s2.html">Session 2</a>
-        <a class="sidebar-link" href="u3c1s3.html">Session 3</a>
+      <div class="tree-item">
+        <button class="tree-toggle" onclick="toggleTree(this)">
+          <span>Unit 3</span>
+          <span class="tree-arrow">➤</span>
+        </button>
+
+        <div class="tree-content">
+
+          <div class="tree-item nested-box">
+            <button class="tree-toggle" onclick="toggleTree(this)">
+              <span>Concept 1</span>
+              <span class="tree-arrow">➤</span>
+            </button>
+            <div class="tree-content">
+              <a class="tree-link" href="u3c1.html">Open Concept 1</a>
+              <a class="tree-link" href="u3c1s1.html">Session 1</a>
+              <a class="tree-link" href="u3c1s2.html">Session 2</a>
+              <a class="tree-link" href="u3c1s3.html">Session 3</a>
+            </div>
+          </div>
+
+          <div class="tree-item nested-box">
+            <button class="tree-toggle" onclick="toggleTree(this)">
+              <span>Concept 2</span>
+              <span class="tree-arrow">➤</span>
+            </button>
+            <div class="tree-content">
+              <a class="tree-link" href="u3c2.html">Open Concept 2</a>
+              <a class="tree-link" href="u3c2s3.html">Session 3</a>
+              <a class="tree-link" href="u3c2s4.html">Session 4</a>
+              <a class="tree-link" href="u3c2s5.html">Session 5</a>
+            </div>
+          </div>
+
+          <div class="tree-item nested-box">
+            <button class="tree-toggle" onclick="toggleTree(this)">
+              <span>Concept 3</span>
+              <span class="tree-arrow">➤</span>
+            </button>
+            <div class="tree-content">
+              <a class="tree-link" href="u3c3.html">Open Concept 3</a>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="sidebar-group">
-        <div class="sidebar-group-title">Concept 2</div>
-        <a class="sidebar-link" href="u3c2.html">Open Concept 2</a>
-        <a class="sidebar-link" href="u3c2s3.html">Session 3</a>
-        <a class="sidebar-link" href="u3c2s4.html">Session 4</a>
-        <a class="sidebar-link" href="u3c2s5.html">Session 5</a>
+      <div class="tree-item">
+        <button class="tree-toggle" onclick="toggleTree(this)">
+          <span>Unit 4</span>
+          <span class="tree-arrow">➤</span>
+        </button>
+
+        <div class="tree-content">
+
+          <div class="tree-item nested-box">
+            <button class="tree-toggle" onclick="toggleTree(this)">
+              <span>Concept 1</span>
+              <span class="tree-arrow">➤</span>
+            </button>
+            <div class="tree-content">
+              <a class="tree-link" href="u4c1.html">Open Concept 1</a>
+            </div>
+          </div>
+
+          <div class="tree-item nested-box">
+            <button class="tree-toggle" onclick="toggleTree(this)">
+              <span>Concept 2</span>
+              <span class="tree-arrow">➤</span>
+            </button>
+            <div class="tree-content">
+              <a class="tree-link" href="u4c2.html">Open Concept 2</a>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="sidebar-group">
-        <div class="sidebar-group-title">Concept 3</div>
-        <a class="sidebar-link" href="u3c3.html">Open Concept 3</a>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>Unit 4</h3>
-
-      <div class="sidebar-group">
-        <div class="sidebar-group-title">Concept 1</div>
-        <a class="sidebar-link" href="u4c1.html">Open Concept 1</a>
-      </div>
-
-      <div class="sidebar-group">
-        <div class="sidebar-group-title">Concept 2</div>
-        <a class="sidebar-link" href="u4c2.html">Open Concept 2</a>
-      </div>
     </div>
 
     <p class="sidebar-note">
@@ -457,13 +513,6 @@
       </a>
     </div>
 
-    <div class="quick-box">
-      <h3 class="quick-title">Quick Access</h3>
-      <p class="quick-text">
-        Use the menu button to move quickly from <strong>Unit</strong> to <strong>Concept</strong> to <strong>Session</strong> without getting lost.
-      </p>
-    </div>
-
     <div class="footer-note">More sessions will be added soon.</div>
   </div>
 
@@ -477,6 +526,36 @@
       document.getElementById("sidebar").classList.remove("active");
       document.getElementById("sidebarOverlay").classList.remove("active");
     }
+
+    function toggleTree(button) {
+      button.parentElement.classList.toggle("open");
+    }
+
+    document.querySelectorAll(".tree-link").forEach(link => {
+      link.addEventListener("click", () => {
+        closeSidebar();
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeSidebar();
+      }
+    });
+
+    const currentPage = window.location.pathname.split("/").pop();
+
+    document.querySelectorAll(".tree-link").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+
+        let parent = link.closest(".tree-item");
+        while (parent) {
+          parent.classList.add("open");
+          parent = parent.parentElement.closest(".tree-item");
+        }
+      }
+    });
   </script>
 
 </body>
