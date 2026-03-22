@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template Session</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
 
+  <header>
+    <h1 id="lessonTitle"></h1>
+    <p id="lessonInfo"></p>
+  </header>
+
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+
+  <div id="slidesContainer"></div>
+
+  <div class="toolbar">
+    <button type="button" onclick="prevSlide()">⬅</button>
+    <button type="button" onclick="playSlides()">▶</button>
+    <button type="button" onclick="pauseSlides()">⏸</button>
+    <button type="button" onclick="nextSlide()">➡</button>
+    <button type="button" onclick="restartLesson()">🔄</button>
+    <button type="button" onclick="goHome()">🏠</button>
+    <button type="button" onclick="toggleFullScreen()">⛶</button>
+  </div>
+
+  <div id="counter"></div>
+
+  <script>
+    const version = Date.now();
+
+    const lessonScript = document.createElement("script");
+    lessonScript.src = "template_lesson_data.js?v=" + version;
+
+    lessonScript.onload = function () {
+      const appScript = document.createElement("script");
+      appScript.src = "assets/js/script.js?v=" + version;
+      document.body.appendChild(appScript);
+    };
+
+    document.body.appendChild(lessonScript);
+  </script>
+
+</body>
+</html>
