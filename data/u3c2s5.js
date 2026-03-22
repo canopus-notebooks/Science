@@ -14,12 +14,12 @@ const lessonData = {
           text: "Factories produce <span class='highlight'>smoke</span>."
         },
         {
-          image: "assets/images/s5/u3c2a9.jpg",
+          image: "assets/images/s5/u3c2a92.jpg",
           title: "Cars",
           text: "Cars produce <span class='highlight'>smog</span>."
         },
         {
-          image: "assets/images/s5/u3c2a9.jpg",
+          image: "assets/images/s5/u3c2a93.jpg",
           title: "Farms",
           text: "Farms use <span class='highlight'>pesticides</span>."
         }
