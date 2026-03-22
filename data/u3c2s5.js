@@ -9,17 +9,17 @@ const lessonData = {
 
       cards: [
         {
-          image: "u3c2a9.jpg",
+          image: "assets/images/s5/u3c2a9.jpg",
           title: "Factories",
           text: "Factories produce <span class='highlight'>smoke</span>."
         },
         {
-          image: "u3c2a9.jpg",
+          image: "assets/images/s5/u3c2a9.jpg",
           title: "Cars",
           text: "Cars produce <span class='highlight'>smog</span>."
         },
         {
-          image: "u3c2a9.jpg",
+          image: "assets/images/s5/u3c2a9.jpg",
           title: "Farms",
           text: "Farms use <span class='highlight'>pesticides</span>."
         }
@@ -58,17 +58,17 @@ const lessonData = {
 
       cards: [
         {
-          image: "u3c2a10.jpg",
+          image: "assets/images/s5/u3c2a10.jpg",
           title: "Fossil Fuels",
           text: "<span class='highlight'>Coal</span>, <span class='highlight'>oil</span>, <span class='highlight'>natural gas</span>, gasoline."
         },
         {
-          image: "u3c2a102.jpg",
+          image: "assets/images/s5/u3c2a102.jpg",
           title: "Acid Rain",
           text: "<span class='highlight'>CO2</span> + water → <span class='highlight'>acid rain</span>"
         },
         {
-          image: "u3c2a103.jpg",
+          image: "assets/images/s5/u3c2a103.jpg",
           title: "Global Warming",
           text: "<span class='highlight'>CO2</span> traps heat"
         }
@@ -105,17 +105,17 @@ const lessonData = {
 
       cards: [
         {
-          image: "u3c2a11.jpg",
+          image: "assets/images/s5/u3c2a11.jpg",
           title: "Save Fuel",
           text: "Use less <span class='highlight'>fuel</span>"
         },
         {
-          image: "u3c2a112.jpg",
+          image: "assets/images/s5/u3c2a112.jpg",
           title: "Turn Off Lights",
           text: "Save <span class='highlight'>electricity</span>"
         },
         {
-          image: "u3c2a113.jpg",
+          image: "assets/images/s5/u3c2a113.jpg",
           title: "Renewable Energy",
           text: "<span class='highlight'>Solar</span> and <span class='highlight'>wind</span>"
         }
@@ -146,12 +146,12 @@ const lessonData = {
 
       cards: [
         {
-          image: "u3c2a12.jpg",
+          image: "assets/images/s5/u3c2a12.jpg",
           title: "Renewable Energy",
           text: "Can be <span class='highlight'>replaced</span>"
         },
         {
-          image: "u3c2a122.jpg",
+          image: "assets/images/s5/u3c2a122.jpg",
           title: "Nonrenewable Energy",
           text: "Cannot be replaced quickly"
         }
@@ -180,7 +180,7 @@ const lessonData = {
 
     {
       title: "Summary",
-      image: "u3c2summary.jpg",
+      image: "assets/images/s5/u3c2summary.jpg",
 
       bullets: [
         "<span class='highlight'>Pollution</span> is caused by human activities",
