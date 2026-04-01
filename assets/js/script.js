@@ -50,7 +50,13 @@ function loadLesson() {
     }
 
     if (slide.image) {
-      html += `<img src="${slide.image}" class="main-image reveal-item" alt="${stripHtml(slide.title || "")}">`;
+      html += `
+        <img
+          src="${slide.image}"
+          class="main-image reveal-item clickable-image"
+          onclick="event.stopPropagation(); openImage(this.src)"
+          alt="${stripHtml(slide.title || "")}">
+      `;
     }
 
     if (slide.bullets && slide.bullets.length) {
@@ -91,7 +97,11 @@ function loadLesson() {
       slide.cards.forEach(card => {
         html += `
           <div class="card reveal-item">
-            <img src="${card.image}" alt="${stripHtml(card.title || "")}">
+            <img
+              src="${card.image}"
+              class="clickable-image"
+              onclick="event.stopPropagation(); openImage(this.src)"
+              alt="${stripHtml(card.title || "")}">
             <h3>${card.title || ""}</h3>
             <p>${card.text || ""}</p>
           </div>
@@ -230,7 +240,9 @@ function setupSlideClick() {
     if (
       e.target.closest(".reveal-arrow") ||
       e.target.closest(".top-controls") ||
-      e.target.closest(".toolbar")
+      e.target.closest(".toolbar") ||
+      e.target.closest(".image-overlay") ||
+      e.target.closest(".clickable-image")
     ) {
       return;
     }
@@ -278,6 +290,36 @@ function toggleFullScreen() {
     }
   }
 }
+
+function openImage(src) {
+  const oldOverlay = document.querySelector(".image-overlay");
+  if (oldOverlay) oldOverlay.remove();
+
+  const overlay = document.createElement("div");
+  overlay.className = "image-overlay";
+  overlay.innerHTML = `
+    <button type="button" class="image-close-btn" aria-label="Close image">✕</button>
+    <img src="${src}" class="fullscreen-image" alt="Full image preview">
+  `;
+
+  overlay.addEventListener("click", function (e) {
+    if (
+      e.target === overlay ||
+      e.target.classList.contains("image-close-btn")
+    ) {
+      overlay.remove();
+    }
+  });
+
+  document.body.appendChild(overlay);
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    const overlay = document.querySelector(".image-overlay");
+    if (overlay) overlay.remove();
+  }
+});
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", loadLesson);
